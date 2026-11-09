@@ -1,0 +1,38 @@
+{
+  "name": "ucp-contributors",
+  "private": true,
+  "type": "module",
+  "description": "Contribution stats for the Universal Commerce Protocol repositories.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igrigorik/ucp-contributors.git"
+  },
+  "packageManager": "bun@1.4.0",
+  "engines": {
+    "bun": "1.4.0"
+  },
+  "scripts": {
+    "pull": "bun run scripts/pull.ts",
+    "pull:github": "bun run scripts/pull-github.ts",
+    "pull:council": "bun run scripts/pull-council.ts",
+    "pull:branches": "bun run scripts/pull-branches.ts",
+    "acquire": "bun run scripts/acquire.ts",
+    "derive": "bun run scripts/derive.ts",
+    "verify": "bun run scripts/verify.ts",
+    "typecheck": "tsc --noEmit",
+    "audit": "bun run scripts/audit.ts",
+    "build": "bun run scripts/acquire.ts --git-only && bun run scripts/derive.ts --git-only && bun run scripts/verify.ts --git-only",
+    "build:full": "bun run acquire && bun run derive && bun run verify",
+    "serve": "bun run scripts/serve.ts",
+    "test": "bun test",
+    "stage": "bun run scripts/stage-site.ts"
+  },
+  "dependencies": {
+    "json5": "^2.2.3"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.0",
+    "typescript": "^7.0.2"
+  }
+}

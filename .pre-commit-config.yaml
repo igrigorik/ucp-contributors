@@ -1,0 +1,23 @@
+# Local hooks only: each runs a tool already pinned by package.json/bun.lock,
+# so `pre-commit run --all-files` needs Bun 1.4.0, Node, and `bun install`.
+# None of these acquire or derive data; they never touch the network.
+repos:
+  - repo: local
+    hooks:
+      - id: typecheck
+        name: typecheck (tsc --noEmit)
+        entry: bun run typecheck
+        language: system
+        pass_filenames: false
+        types_or: [ts, javascript, json]
+      - id: unit-tests
+        name: unit tests (bun test)
+        entry: bun test
+        language: system
+        pass_filenames: false
+        types_or: [ts, javascript, json, json5]
+      - id: site-js-syntax
+        name: site JS syntax (node --check)
+        entry: node --check
+        language: system
+        files: ^site/.*\.js$

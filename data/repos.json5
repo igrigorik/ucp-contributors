@@ -1,0 +1,63 @@
+// Repositories to measure. Bare-cloned into raw/repos/ by `bun run pull`, and
+// the same list drives the GitHub overlay in `pull-github`.
+//
+// This is an allow list on purpose, and enumerating the organization at runtime
+// is forbidden. The organization contains a PRIVATE repository, so any
+// discovery loop returns whatever the caller's token can see — and `pull` would
+// then flatten its commit bodies and author emails into raw/, which `derive`
+// publishes. Filtering on a visibility flag does not fix the asymmetry: a list
+// that is wrong under-counts, which is visible and fixable, while discovery that
+// is wrong publishes private data, which is neither. Scope is also an editorial
+// judgment rather than a fact to be discovered, which is the second reason it
+// belongs in a reviewed file.
+//
+// Deliberately NOT measured, so a future reader does not re-litigate it:
+//   .github          cross-repository lint and code-of-conduct config. 118
+//                    commits of it would rank beside specification work.
+//   meeting-minutes  governance minutes, and 85 of its 100 commits are a single
+//                    author's. Counting them would lead the project-wide volume
+//                    ranking with minute-taking.
+//   (one private repository, name omitted)  Must never be cloned.
+//
+// `class` groups repositories by what the work IS, and exists because blending
+// them produced a wrong story. Project-wide, review looks like a monoculture:
+// two organizations perform 90% of it. Split by class, the specification has 73
+// reviewers across 20 companies while the implementations have 25 across 4 — and
+// 16 companies that review the specification have never reviewed an SDK. One
+// figure was hiding two different projects.
+//
+//   spec     the normative artifact. Changing it changes what UCP IS.
+//   tooling  operates on the specification: lint, compose, resolve, validate.
+//   impl     consumes the specification: SDKs, samples, conformance suites.
+//
+// An editorial judgment, so it is hand-assigned here rather than inferred from a
+// repository name. A fourth class is a data edit, not a code change.
+//
+// `seed` names commits that imported existing work rather than authoring it —
+// bulk drops of 4,832 to 28,385 lines that would otherwise crown whoever ran
+// `git push` as the project's largest contributor. Hand-listed because the shape
+// is not detectable: ucp's root commit is a ZERO-line "Initial empty commit"
+// whose child carries the real 28,385-line import, so `--max-parents=0` finds
+// the wrong one. Their lines are still counted, and attributed to the import.
+[
+  { name: "ucp",         class: "spec",
+    seed: ["5ea2729492fd8e81439c704c91f749667c265362"],
+    url: "https://github.com/Universal-Commerce-Protocol/ucp.git" },
+  { name: "ucp-schema",  class: "tooling",
+    // Two: the empty root, then an import from the repository's previous home.
+    seed: ["72617dcc45", "ce612391d8"],
+    url: "https://github.com/Universal-Commerce-Protocol/ucp-schema.git" },
+  { name: "python-sdk",  class: "impl",
+    seed: ["8896ad68e0"],
+    url: "https://github.com/Universal-Commerce-Protocol/python-sdk.git" },
+  { name: "js-sdk",      class: "impl",
+    // Both are automated history imports, landed three days apart.
+    seed: ["bd76678c30", "2a01328406"],
+    url: "https://github.com/Universal-Commerce-Protocol/js-sdk.git" },
+  { name: "samples",     class: "impl",
+    seed: ["1b83acff12"],
+    url: "https://github.com/Universal-Commerce-Protocol/samples.git" },
+  { name: "conformance", class: "impl",
+    seed: ["8d8fef11c1"],
+    url: "https://github.com/Universal-Commerce-Protocol/conformance.git" },
+]

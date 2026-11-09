@@ -1,0 +1,45 @@
+{
+  // Exists so `bun run typecheck` is one word rather than eight flags. Without a
+  // tsconfig, tsc has no inputs and prints its help text — which looks enough
+  // like success in a terminal that a typecheck nobody can run easily is a
+  // typecheck nobody runs.
+  //
+  // A previous version of this comment claimed `Field` was a union of the metric
+  // names, so that a metric added to one list and not the other would be a
+  // compile error. It is not: `GIT_FIELDS` lives in plain JS where `as const` is
+  // not available, so `(typeof GIT_FIELDS)[number]` widens to `string` and
+  // `Metrics` is `Record<string, number>` — `m["typo"]` type-checks fine. The
+  // vocabulary is enforced at RUNTIME by verify.ts, not here. Believing otherwise
+  // is worse than knowing there is no check.
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM"],
+    "target": "ESNext",
+    "module": "Preserve",
+    "moduleResolution": "bundler",
+    "types": ["bun"],
+
+    // Bun runs TypeScript directly, so imports keep their .ts extension and
+    // nothing is ever emitted from this config.
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    // Indexing an array or record yields `T | undefined`, because it does at
+    // runtime. This project reads a lot of `rows[0]`, `parts[1]`, and
+    // `map.get(k)` on data parsed from disk, where a missing element is exactly
+    // how a malformed or empty input arrives.
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": true,
+
+    // The site is plain JS with no build step, and `site/vocab.js` is imported by
+    // both the pipeline and the browser. Types are INFERRED from it so the
+    // pipeline still gets checked against the vocabulary the site renders, but
+    // the JS itself is not type-checked — it has no annotations to check, and
+    // requiring them would be the first step of the build step this project does
+    // not have.
+    "allowJs": true,
+    "checkJs": false
+  },
+  "include": ["scripts", "site"]
+}

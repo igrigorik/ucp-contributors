@@ -1,0 +1,1092 @@
+/* UCP contributors: an editorial ledger.
+   Serif carries language, sans carries interface, and mono carries measurements,
+   dates and identifiers. Whitespace and three rule weights provide hierarchy. */
+
+:root {
+  /* Paper, not screen white. A 4% warm cast is the cheapest, most honest signal
+     that this page is a printed document, and it costs nothing: every ink value
+     below is measured against THIS background, not against #fff. */
+  --bg: #fbfaf6;
+  --surface: #fff;
+  --tooltip: #f6f1e4;
+  --shadow: rgba(60, 45, 30, 0.05);
+
+  /* The ink ramp. Three tiers, and every one of them passes 4.5:1 on the paper
+     above — measured, not eyeballed:
+        --fg     16.62:1     --muted  7.64:1     --faint  5.14:1
+     The baseline's --faint (#9aa1ab) was 2.61:1 and could not legally carry
+     text; a tier you may not use is not a tier. Print greys are darker than
+     screen greys because ink is opaque, so the editorial answer and the
+     accessible answer are the same answer here. --faint still clears 4.5:1 on
+     the hover tint (4.76:1) and on the selected-row wash (4.67:1), which is
+     where a light grey normally dies. */
+  --fg: #1c1a17;
+  --muted: #55504a;
+  --faint: #6f6a61;
+
+  /* Burgundy is reserved for keyboard focus; blue identifies destinations and
+     sortable/active table headers. Both pass text contrast on paper and surface. */
+  --focus: #8a2b30;
+  --link: #1857b8;
+
+  /* THREE rule weights, which is the whole hierarchy device on this page:
+       --rule       near-black, 1-2px: the page's structural rules — under the
+                    masthead, under the column labels, closing the table, above
+                    each summary column, around a definition.
+       --rule-thin  mid: structure that must be legible but must not compete —
+                    the header band's top edge, the partition bracket, the
+                    vertical rule that opens a column group, control underlines.
+       --line       hairline: 85 rows of row separation. Any darker and the
+                    table becomes a grid; any lighter and the eye loses the row. */
+  --rule: #26231f;
+  --rule-thin: #b8b0a0;
+  --line: #e3ded0;
+
+  /* The "there is more to read" dotted underline. One value so the affordance
+     means one thing wherever it appears. Deliberately NOT --rule-thin even
+     though the two are close in value: they are independent meanings and must
+     be free to move apart. */
+  --dot: #a89f8d;
+
+  /* The underline under a link that sits in a TABLE cell. A screened rubric, so
+     an 85-row column of names reads as an index of cross-references rather than
+     as 85 red words. See `td a.link` for why table links are ink, not accent. */
+  --link-line: #a9c2e2;
+
+  /* The in-cell data bar. Strong enough to read at 3px tall (3.11:1 against
+     paper), quiet enough that 85 of them are a texture and not an alarm. */
+  /* Full-height tint, the baseline's own value. The 3px rule that replaced it
+     was removing a real defect — the baseline set the share text in --faint
+     #9aa1ab, which is 2.09:1 on this tint and illegible — but it treated the
+     symptom by deleting the bar instead of by fixing the text. The tint is the
+     better read: it fills the cell, so magnitude is a length you compare down
+     the column rather than a hairline you hunt for. See `.sh` for the actual
+     fix, which is one step of ink on the share, not a weaker bar. */
+  --bar: #dbe7fb;
+
+  /* Row hover tint. A variable because the row and its pinned first cell must
+     paint the SAME colour: the pinned cell needs an opaque background of its
+     own, and two near-identical greys would make it visibly detach from the row
+     it belongs to. */
+  --hover: #f4f1e8;
+  /* Selected-scope wash. Warm on the accent's side of the paper so it is
+     distinguishable from the hover tint by HUE and not only by value —
+     otherwise a hovered row and the selected row are the same event. */
+  --sel: #f7ede9;
+
+  /* Reader's mark. Yellow for one reason: it is the only tint on this page that
+     nobody reads as a system state. --hover is transient, --sel means "this is
+     the active scope" and --bar means "this much of the total" — all three are
+     things the page is telling the reader. A highlighter is the reader telling
+     the page, and the pen convention says that in no words.
+
+     Pale enough that the ink survives it: --fg #23272e measures 14.2:1 here and
+     the faintest text on a row, --muted, holds 5.3:1. --pick-edge is the same
+     hue two steps down, used as a left rule so the mark is not carried by colour
+     alone — the same reason the sort indicator is an arrow and not a shade. */
+  --pick: #fbf3cd;
+  --pick-edge: #e0c766;
+
+  /* Georgia first, deliberately, not ui-serif: on Chrome/macOS ui-serif
+     resolves to Times, which at 13px is thin and cramped, while Georgia is a
+     screen serif with a large x-height and sturdy hairlines and is installed on
+     every macOS and Windows machine. Putting it first also means Safari and
+     Chrome render identically, which matters more here than getting New York on
+     one of them. Iowan Old Style and Palatino cover macOS installs that lack
+     Georgia; Liberation/DejaVu Serif answer `serif` on Linux; Times New Roman
+     is the floor. Every step of the stack is a real text serif — no step
+     degrades into a display face. */
+  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua",
+           ui-serif, "Times New Roman", Times, serif;
+  /* The instruments only. Kept off the content so a filter never impersonates a
+     finding. */
+  --sans: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Repeated display roles. Context still controls face, weight and register. */
+  --type-section: 17px;
+  --type-entity: 32px;
+  --type-stat: 16px;
+  --type-data: 12.5px;
+  --type-body: 14.5px;
+  --type-meta: 13.5px;
+  --type-note: 13px;
+  --type-label: 11.5px;
+
+  /* Shared vertical rhythm and responsive page gutters. */
+  --space-section: 44px;
+  --space-heading-gap: 14px;
+  --gutter: 20px;
+  --gutter-mobile: 16px;
+
+  /* Alpha mask keeps the permalink icon in the heading's current colour. */
+  --icon-anchor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M9.5 14.5l5-5'/%3E%3Cpath d='M7.1 17.9l-1 .9a3.5 3.5 0 01-4.9-4.9l3.4-3.4a3.5 3.5 0 014.9 0'/%3E%3Cpath d='M16.9 6.1l1-.9a3.5 3.5 0 014.9 4.9l-3.4 3.4a3.5 3.5 0 01-4.9 0'/%3E%3C/g%3E%3C/svg%3E");
+
+  /* Native controls and scrollbars must stay light: this page is paper, and a
+     reader whose OS is in dark mode would otherwise get dark selects and a dark
+     search field sitting on a cream sheet. There is no dark theme here on
+     purpose — an ink-on-paper thesis has no honest dark inversion, and shipping
+     one I cannot see is worse than not shipping it. */
+  color-scheme: light;
+
+  /* The 1240px measure is deliberately NOT a custom property: a media query
+     cannot read one — `@media (max-width: var(--x))` is invalid, because media
+     conditions are evaluated before custom properties resolve. So the width sits
+     literally in `.wrap` and the breakpoint one pixel below it in
+     `@media (max-width: 1239px)`, and the two have to be moved together. */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--serif);
+  /* 14.5/1.62 rather than 14/1.5. Georgia's large x-height reads bigger than a
+     sans at the same nominal size, and the extra leading is what makes the page
+     feel edited instead of dumped. It costs nothing in the table, which sets
+     its own size and rhythm. */
+  font-size: var(--type-body);
+  line-height: 1.62;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+/* Two measures, because this page carries two kinds of content.
+   The tables want whatever width the data needs — at 1100px the widest view was
+   96px short and scrolled inside its own box, which is a self-inflicted
+   constraint: the viewport is far wider and 700px of it sat unused on either
+   side. Table footers follow the full table width; other prose keeps a readable
+   measure. */
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter) 80px; }
+.note:not(.group .note, .table > .note), footer p, .scope.caveat { max-width: 74ch; }
+
+/* ------------------------------------------------------------------ masthead
+   One dark rule under the whole header block. That rule IS the masthead: it is
+   why the h1 needs no weight, no box and no colour to read as the top of a
+   document. It stays at 1px so the active nav tab's 2px accent can sit on top
+   of it (see `nav a`) without the two fighting. */
+/* Nameplate over section band: identity on one line, navigation on the next,
+   closed by the near-black rule that already existed. The two bands are separated
+   by space rather than by a line — see `nav`. Previously the three parts of the header
+   were stacked as three tiers and ranked identity > provenance > navigation —
+   the site's only top-level control was the least prominent thing in its own
+   header, and a 30px title that is identical on every page outranked the figures
+   that change on every page. */
+header { border-bottom: 1px solid var(--rule); margin-bottom: 26px; }
+header .wrap {
+  padding-top: 30px; padding-bottom: 0;
+  /* Title and dateline share a baseline instead of stacking, which is the
+     nameplate-plus-dateline of a masthead and buys back a whole tier of vertical
+     space. space-between drives the dateline to the right rule, so the two ends
+     of the masthead are anchored to the two edges of the measure rather than the
+     dateline trailing the wordmark. nav takes a full row of its own below. */
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  justify-content: space-between; column-gap: 20px; row-gap: 6px;
+}
+
+/* Mark and wordmark are one object, so they travel together when the dateline
+   wraps away at narrow widths. align-items: center, not baseline: the mark is a
+   glyph-like block with no baseline of its own, and baseline-aligning it against
+   23px Georgia hangs it noticeably low. */
+.brand { display: inline-flex; align-items: center; gap: 9px; }
+/* Size on the logo's short axis; repeat it at the phone step where h1 changes. */
+.mark { height: 26px; width: auto; flex: none; color: var(--fg); display: block; }
+
+/* The nameplate is identity rather than page content, so it stays below the
+   summary figures in the display scale. */
+h1 { font-size: 23px; font-weight: 400; letter-spacing: -0.012em; margin: 0; }
+
+/* The dateline: counts and a date range, no sentence around it. Entirely
+   measurement, so entirely monospace — it pairs the masthead with the columns
+   below it and brackets the page against the footer's provenance stamp. */
+header .sub {
+  font-family: var(--mono);
+  font-size: var(--type-data);
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Structural headings use one register at either h2 or h3. Entity and stat
+   contexts override only their display tier below. Headings use whitespace,
+   leaving rules to tables and summary columns. */
+.section-heading {
+  scroll-margin-top: 20px;
+  font-size: var(--type-section);
+  font-weight: 500;
+  font-variant-caps: small-caps;
+  text-transform: lowercase;
+  letter-spacing: 0.13em;
+  color: var(--fg);
+  margin: var(--space-section) 0 var(--space-heading-gap);
+}
+.section-heading:first-child { margin-top: 0; }
+
+/* Permalinks never change the heading's colour or underline. The icon's box is
+   always reserved, so revealing it cannot move text. */
+.heading-anchor,
+.heading-anchor:is(:hover, :focus, :focus-visible, :active, :visited) {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: baseline;
+  gap: 0.3em;
+  color: inherit;
+  text-decoration: none;
+}
+.anchor-icon {
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  flex: none;
+  background: currentColor;
+  -webkit-mask: var(--icon-anchor) center / contain no-repeat;
+  mask: var(--icon-anchor) center / contain no-repeat;
+  opacity: 0;
+}
+.section-heading:hover .anchor-icon,
+.section-heading:focus-within .anchor-icon { opacity: 0.55; }
+
+@media (hover: none), (pointer: coarse) {
+  .anchor-icon { opacity: 0.28; }
+}
+
+/* A table heading and its controls share one baseline-aligned row. */
+.controls.bar {
+  align-items: baseline;
+  margin: var(--space-section) 0 var(--space-heading-gap);
+}
+.controls.bar:first-child { margin-top: 0; }
+/* The row owns spacing when a heading shares it with controls. */
+.controls.bar .section-heading { margin: 0; }
+
+nav {
+  display: flex;
+  /* Navigation owns a row below the nameplate; spacing replaces a redundant rule. */
+  flex-basis: 100%;
+  margin-top: 10px;
+  /* Tabs share one edge with the header's closing rule, so they align to the
+     bottom of the band rather than the top. */
+  align-items: flex-end;
+  column-gap: 3px;
+}
+nav a {
+  /* Navigation is interface chrome and shares the table-label register. */
+  font-family: var(--sans);
+  text-transform: uppercase;
+  font-variant-caps: normal;
+  font-size: var(--type-label);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 9px 15px;
+  /* Reserved on every tab so gaining the outline when current does not move the
+     label by a pixel. */
+  border: 1px solid transparent;
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  /* NOT pulled down onto the rule — see nav a.on. */
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+nav a:hover { background: var(--hover); color: var(--fg); }
+/* The current view is a white card notched onto the header's own closing rule,
+   which is the same figure-ground device as the summary cards and the controls:
+   white sits forward of cream.
+
+   The -1px belongs to THIS rule alone. Applied to every tab, a hovered tab
+   painted over the header rule exactly as the current one does, so hovering
+   forged the selected state and the strip momentarily had two answers to "where
+   am I". Three signals now separate current from hovered: white rather than
+   tinted, outlined rather than not, and the only tab that interrupts the rule. */
+nav a.on {
+  background: var(--surface);
+  border-color: var(--rule-thin);
+  border-bottom-color: transparent;
+  color: var(--fg);
+  margin-bottom: -1px;
+}
+
+/* ------------------------------------------------------------------ controls
+   Controls are sans-serif instruments. A surface and complete border preserve
+   their affordance against the paper background. */
+.controls {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  font-family: var(--sans);
+  font-size: var(--type-data);
+  color: var(--muted);
+}
+/* The label recedes so the value can lead: these two are read as one phrase
+   ("metric: commits"), and at equal weight the static half was competing with
+   the half that changes. */
+.controls label { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); }
+.controls select, .controls input {
+  font: inherit;
+  /* Medium, not regular. The VALUE is the thing being reported back to the
+     reader ("commits", "all"); its label is context. Weight separates them
+     without a second colour. */
+  font-weight: 500;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--rule-thin);
+  border-radius: 3px;
+  padding: 5px 8px;
+  /* Explicit, because a native <select> and a native <input> do not agree on the
+     height of an inherited line box: at `font: inherit` alone they came out 29px
+     and 32px, which is visible misalignment in a row where they sit shoulder to
+     shoulder. Pinning line-height makes the content boxes identical and lets
+     padding do the rest. */
+  line-height: 1.45;
+}
+/* Hover darkens the whole boundary rather than one edge — the box is the
+   affordance now, so the box is what should respond. */
+.controls select:hover, .controls input:hover { border-color: var(--rule); }
+/* Keyboard focus lands in the interaction colour, matching links and the sorted
+   column. The global :focus-visible rule uses the rubric, which is correct for
+   the masthead but wrong here: nothing in this row is "where you are". */
+.controls select:focus-visible, .controls input:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 1px;
+  border-color: var(--link);
+}
+.controls input {
+  width: 190px;
+  /* 190px fits inside 350px of content at 390px, but max-width is the guard
+     against a future longer placeholder pushing the document sideways. */
+  max-width: 100%;
+}
+.controls input::placeholder { color: var(--faint); opacity: 1; }
+.spacer { flex: 1; }
+
+/* --------------------------------------------------------------------- table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* 13.5px, not 13px: this is Georgia, and it is the LANGUAGE size — names and
+     column labels. The figures are set separately and smaller (see td.n), which
+     is the only place the two faces have to be reconciled by eye. */
+  font-size: var(--type-meta);
+  line-height: 1.45;
+}
+/* Horizontal padding is constrained by the measured 13-column table width.
+   Baseline alignment keeps figures on the first line when a name wraps. */
+th, td {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: baseline;
+}
+
+/* Column labels are interface instrumentation: uppercase sans, with mono
+   inherited by numeric columns. Rules above and below establish the header band. */
+thead th {
+  font-family: var(--sans);
+  font-size: var(--type-label);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  background: var(--bg);
+  padding-top: 6px;
+  padding-bottom: 7px;
+}
+thead tr:first-child th { border-top: 1px solid var(--rule-thin); }
+thead tr:last-child th { border-bottom: 2px solid var(--rule); }
+
+/* Only the COLUMN-LABEL row pins. The group row above it may scroll away,
+   because every column label stands alone — which is exactly why the groups are
+   named `initiated`/`engaged` rather than echoing their own columns
+   `proposed`/`reviewed`. Pinning both would require the group row's rendered
+   height hardcoded here as a `top` offset: a duplicate of a number the layout
+   engine already knows, silently wrong after any font or padding change, and
+   visibly wrong only when scrolled. `tr:last-child` is the sole header row in an
+   ungrouped table, so one rule serves both shapes.
+
+   This did nothing at all until `.tablewrap` stopped being a scrollport: with no
+   height constraint there was never anything to stick to, and the header simply
+   scrolled away (measured — top went to -384 after a 900px scroll). It works now
+   because the scroll box is scoped to narrow viewports; below that measure the
+   header still scrolls, which is the honest trade for keeping the pinned first
+   column and horizontal scroll where they earn their keep.
+
+   z-index is load-bearing, not decoration: `position: sticky` creates a stacking
+   context even at `z-index: auto`, which trapped the tooltip's `z-index: 30`
+   inside this cell while `td.bar span.v` sits at `z-index: 1` in the parent
+   context and painted straight through it. A pinned header must sit above body
+   rows regardless. Every z-index in this file is inherited unchanged from the
+   baseline for that reason. */
+thead tr:last-child th { position: sticky; top: 0; z-index: 3; }
+
+/* Blue identifies sortable interaction and remains distinct from focus. */
+thead th:hover { color: var(--link); }
+thead th .ind { color: var(--link); }
+
+/* Group header row: a scanning aid, not a control. No bottom rule — with
+   border-collapse it would fuse with the `kid` bracket below and destroy the one
+   distinction this row exists to support. True small caps (source text is
+   lowercase, so `text-transform: none` is required to stop the inherited
+   `capitalize` turning them into a capital plus small caps). */
+thead tr.grouphead th {
+  cursor: default;
+  color: var(--muted);
+  font-size: var(--type-label);
+  text-transform: none;
+  font-variant-caps: small-caps;
+  letter-spacing: 0.09em;
+  /* Left, not centred. Centred over a six-column group the label's midpoint
+     landed exactly on the `kid` bracket below it and was slightly wider, so the
+     bracket read as an underline for the group name rather than as a rule over
+     three columns — inverting the one thing it exists to say. Anchoring the
+     label to its own opening rule also removes the ambiguity about which side
+     of a boundary a label belongs to. */
+  text-align: left;
+  border-bottom: none;
+  padding-bottom: 2px;
+}
+
+/* landed/open/declined sum to proposed exactly (501 rows, 0 mismatches).
+   Adjacent th top-borders fuse into ONE line spanning precisely those three, so
+   a sum and its parts separate without the ~28px and 90%-empty middle row a
+   third header row would have cost across six tables. `proposed` sitting
+   OUTSIDE the line is what marks it as the total. `accepted` is excluded
+   deliberately: `78% (264)` cannot be misread as a summand, so its format
+   already does the work.
+
+   1px of --rule-thin rather than 2px of hairline: the bracket now reads as a
+   drawn rule at the same weight as the band's own top edge, which is what it is,
+   instead of as a thick pale border. */
+thead tr:last-child th.kid { border-top: 1px solid var(--rule-thin); }
+
+/* The group boundary, split across two registers on purpose:
+
+     in the HEADER  a vertical rule, where the group's label hangs off it and the
+                    boundary has to be unambiguous;
+     in the BODY    a whitespace gutter and nothing else.
+
+   The baseline ran the vertical rule the full height of the table, which in an
+   85-row × 13-column view draws three full-length verticals through the data and
+   turns the ledger into a grid. An editorial table opens a channel instead. The
+   rule survives exactly where it carries information and stops where it would
+   only be texture. The horizontal `kid` bracket above is still the orthogonal
+   channel, so group boundary and partition never read as the same device — and
+   `issues` still needs no marker of its own: it is inside INITIATED and simply
+   not bracketed, which is precisely the fact to convey.
+
+   Width arithmetic, because this page has 54px of headroom at the full measure:
+   the gutter costs +6px on three columns (+18px), and sentence-case Georgia
+   labels are narrower than the baseline's tracked uppercase on every long header
+   ("Contributors", "Organization", "Attributed", "Repository"), which returns
+   more than it spends. Numeric cells are right-aligned, so this padding opens a
+   channel to the left of the group without moving a single figure. */
+th.gstart, td.gstart { padding-left: 14px; }
+th.gstart { border-left: 1px solid var(--rule-thin); }
+/* The group label hugs its own opening rule rather than the column's gutter. */
+thead tr.grouphead th.gstart { padding-left: 9px; }
+
+tbody tr:hover { background: var(--hover); }
+
+/* A ROW section: a label opening a run of rows that are comparable with each
+   other and not with the rows in the next run. Deliberately the same register as
+   `thead tr.grouphead th` above — small caps, muted, 11.5px — because it does the
+   identical job one axis over, and giving it its own voice would imply the two
+   devices mean different things.
+
+   No hover: hovering a data row previews the row you are about to read across,
+   and a label has nothing to read across. The `sect` row is a `th`, so it is also
+   exempt from the closing rule below, which wants a `td`. */
+tbody tr.sect:hover { background: none; }
+tbody tr.sect th {
+  text-align: left;
+  font-weight: 400;
+  color: var(--muted);
+  font-size: var(--type-label);
+  text-transform: none;
+  font-variant-caps: small-caps;
+  letter-spacing: 0.09em;
+  /* Asymmetric on purpose: the gap belongs ABOVE the label, binding it to the
+     rows it opens rather than floating it between two sections. The first
+     section needs none of it — its label sits directly under the header. */
+  padding: 22px 0 5px;
+}
+tbody tr.sect:first-child th { padding-top: 8px; }
+
+/* The ledger closes. A table that simply stops is a table that might be
+   truncated; the rule states that this is all of it. */
+tbody tr:last-child td { border-bottom: 2px solid var(--rule); }
+
+/* Measurement. The whole thesis in one rule: these cells leave the serif. */
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--mono); }
+/* 12.5px mono against 13.5px Georgia: SF Mono's x-height is slightly larger per
+   em, so this is where the two faces read at the same optical size. */
+td.n { font-size: var(--type-data); }
+
+/* Share, inlined into the active metric's own cell. Dimmed and smaller so the
+   count still leads the scan. Replaces a standalone `share` column whose figure
+   floated several columns from its numerator and had to be defended with a
+   marker on the active header; attaching it to its base removes the ambiguity
+   instead of annotating it. */
+/* --muted, not --faint. This is the single change that lets the full-height bar
+   come back: the share is the one piece of text that sits ON the tint, and at
+   --faint it measures 4.31:1 against it — under the floor. At --muted it is
+   6.39:1 on the tint and 7.64:1 on the page for the rows whose bar is too short
+   to reach it. Darkening 11px of text costs nothing; weakening the bar until
+   --faint survived would have cost the bar. */
+.sh { color: var(--muted); font-size: 11px; }
+
+/* In-cell bar. Cheap proportional read without a chart library. */
+td.bar { position: relative; }
+td.bar .fill {
+  /* Full-height tint growing from the left edge of the cell. Putting colour
+     behind ink is only a problem if the ink cannot survive it, and with the
+     share promoted to --muted the two things that sit on this tint measure
+     13.92:1 (the value) and 6.39:1 (the share) — both well clear.
+
+     Inset 1px on the left, not flush: the active metric can now sit at a group
+     boundary, and a bar 2px wide flush against a 1px rule reads as a thicker
+     rule rather than as data. The gap keeps a near-zero value legible as a
+     near-zero value instead of giving it a floor, which a min-width would.
+     4px off the bottom keeps it from fusing with the row hairline.
+
+     Known cost, stated: on a row whose name wraps to two lines the figure sits
+     on the first line (vertical-align: baseline) while the bar stays on the
+     cell's floor, so the two drift apart by a line. Rare, and the alternative is
+     hardcoding a line-height multiple here — a duplicate of a number the layout
+     engine already owns. Width comes from an inline style written by JS and is
+     never touched here. */
+  position: absolute;
+  inset: 1px auto 1px 1px;
+  background: var(--bar);
+  border-radius: 2px;
+  z-index: 0;
+}
+td.bar span.v { position: relative; z-index: 1; }
+
+/* A cross-reference in PROSE gets the rubric and an underline, as a footnote
+   marker would. */
+a.link {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+a.link:hover { color: var(--fg); text-decoration-color: var(--link); }
+
+/* A cross-reference in a TABLE is ink with a screened underline. Colouring 85
+   names accent-red says nothing — if every row is a link, colour carries no
+   information — and it would drown the one thing the accent is for. The solid
+   underline keeps them visibly clickable in a static screenshot, and it cannot
+   be confused with the dotted "there is more to read" affordance because dotted
+   and solid are different marks. */
+/* Table links are blue like every other link. The original reasoning here was
+   that 85 organization names set in the accent would shout, which is true of the
+   accent — but the conclusion drawn from it was to make them ink with a tinted
+   underline, and that made the most-clicked text on the page look like static
+   type. A link that has to be discovered by hovering is not a link. Blue is the
+   one colour a reader does not have to be taught. */
+td a.link {
+  color: var(--link);
+  text-decoration-color: var(--link-line);
+}
+td a.link:hover { color: var(--fg); text-decoration-color: var(--link); }
+
+/* An editorial annotation, not a badge. `NA` and `Undisclosed` are statements
+   ABOUT the data — one says a ratio has no denominator, the other that a name
+   was never disclosed — so they are set in the serif's italic, which is what
+   italic is for. Dropping the pill also removes the baseline's only genuine
+   contrast failure (muted grey on a #f0f2f5 chip measured 4.31:1), structurally
+   rather than by nudging a hex value: with no fill, these inherit the paper. */
+.tag {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--type-note);
+  color: var(--faint);
+}
+.tag.pseudo { color: var(--muted); }
+.tag a.link { color: inherit; }
+
+.empty { color: var(--muted); padding: 22px 0; font-style: italic; }
+
+/* `align-self` matters only inside the stat-group flex column — see `.group
+   .note`, which now deliberately overrides it. Declared here with the rest of
+   the note's own styling rather than 130 lines away with the tooltip. */
+.note { color: var(--muted); font-size: var(--type-note); margin: 12px 0 0; align-self: start; }
+
+/* Council sections use the same rhythm and heading treatment as every section. */
+.council { margin-top: var(--space-section); scroll-margin-top: 20px; }
+
+/* ------------------------------------------------------- individual report */
+.report-head { display: flex; align-items: baseline; gap: 12px; margin: 2px 0 4px; flex-wrap: wrap; }
+/* Entity names share one display tier; wrappers retain their local margins. */
+.report-head .section-heading,
+.report-name {
+  font-size: var(--type-entity);
+  font-weight: 400;
+  letter-spacing: -0.014em;
+  font-variant-caps: normal;
+  text-transform: none;
+  color: var(--fg);
+}
+.report-head .section-heading { margin: 0; }
+/* Identity keys sit tight under the name: name, keys and scope are one block of
+   three lines, not three sections. break-word because a key can be a long
+   unbroken string, and at 390px an unbreakable 400px token is a horizontally
+   scrolling document. */
+.meta { color: var(--muted); font-size: var(--type-meta); margin: 0 0 3px; overflow-wrap: break-word; }
+.meta code { font-family: var(--mono); font-size: 12px; }
+/* Scope descriptors: "15 contributors · 6 repositories". A sentence, so its
+   figures stay in the sentence's face — see the file header on why counts inside
+   prose are serif and counts inside a column are not. break-word for the same
+   reason as `.meta`: a repository name is an unbreakable token. */
+.scope {
+  color: var(--muted);
+  font-size: var(--type-meta);
+  margin: 0 0 16px;
+  overflow-wrap: break-word;
+}
+
+/* --------------------------------------------------------------- stat groups
+   Cards contain three tiers: lead count, breakdown rows, and a derived note.
+   Their top rule opens each column; aligned closing rules make derived figures
+   comparable across unequal row counts. */
+/* Numbers share a right-aligned grid column so digits stack: with no bar drawn,
+   a reader verifies 104 + 6 + 19 = 129 by eye, and that needs alignment. */
+.rows { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; align-items: baseline; }
+.row { display: contents; }
+.rows .v { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; }
+.rows .k { color: var(--muted); font-size: var(--type-note); }
+/* A tracked monospace lead remains a measurement while outranking the nameplate. */
+.lead .v { font-size: 30px; letter-spacing: -0.018em; line-height: 1.08; }
+.lead .k { font-size: 15px; color: var(--fg); }
+.sub .v { font-size: 14px; color: var(--muted); }
+/* Breakdown labels use the shared data tier. */
+.sub .k { font-size: var(--type-data); }
+
+/* A measured zero, stated once rather than repeated across five rows. Italic,
+   because it is an editor's note about absent data and not a figure. */
+.group .none { color: var(--muted); font-size: var(--type-meta); margin: 0; font-style: italic; }
+
+/* 190px is the measured panel floor. auto-fit collapses without a breakpoint;
+   stretch plus the note's auto margin aligns comparable closing figures. */
+.groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  align-items: stretch;
+  column-gap: 32px;
+  row-gap: 26px;
+  /* More air below than the sections that follow get above them, so the summary
+     reads as the page's opening statement rather than as its first section. */
+  margin: 0 0 var(--space-section);
+}
+/* Surface tone lifts cards from paper; the top rule opens each figure column. */
+.group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--rule);
+  border-radius: 2px;
+  /* A whisper, not a drop shadow: enough to seat the card on the paper, far too
+     little to read as a UI panel floating above a canvas. Warm-tinted because a
+     neutral grey shadow goes muddy against cream. */
+  box-shadow: 0 1px 2px var(--shadow);
+  padding: 13px 15px 15px;
+}
+.group > .section-heading {
+  /* Stat labels are the semantic axis of each card; the card edge and top rule
+     separate this tier from the structural section heading above. */
+  font-size: var(--type-stat);
+  font-weight: 600;
+  font-variant-caps: small-caps;
+  letter-spacing: 0.1em;
+  color: var(--fg);
+  margin: 0 0 var(--space-heading-gap);
+}
+/* flex: 1 is load-bearing for the aligned divider rules. `.note` is a child of
+   this wrapper, not of `.group`, so `margin-top: auto` on the note can only push
+   against THIS box — and until it grew to fill the stretched card it was only as
+   tall as its own content, which made the auto margin resolve to 0 and left the
+   three closing figures at three different heights. */
+.group-body { display: flex; flex-direction: column; flex: 1; }
+/* The note stretches so its hairline spans the card; the inner `.help` span,
+   not this block, owns the dotted tooltip affordance. */
+.group .note {
+  align-self: stretch;
+  /* auto TOP margin is what actually aligns the three divider rules: it pushes
+     the closing figure to the floor of a stretched card, so all three land on one
+     baseline regardless of how many rows sit above them. This single property is
+     the whole reason `.groups` stretches. */
+  margin: auto 0 0;
+  padding: 10px 0 0;
+  border-top: 1px solid var(--line);
+  /* Coverage is a finding, not a footnote; colour makes it secondary. */
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* A metric table is genuinely wide: 12 columns of counts. Scroll it inside its
+   own box rather than letting it widen the document — a horizontally scrolling
+   <body> drags the header and nav off-screen with it. */
+/* The scroll box is scoped to viewports that need it, because it is not free:
+   `overflow-x: auto` forces `overflow-y` to `auto` too, making this a scrollport
+   in BOTH axes, and a scrollport clips. That clipping is what cut the top off
+   every column tooltip (24px of room above the header against a 66px tooltip).
+
+   Measured: the widest table renders 1146px naturally against a 1200px
+   container — every one of the eleven tables reports zero overflow at the full
+   measure. So above the 1240px measure the box has nothing to scroll and only
+   its clipping is doing anything. Below it, horizontal scroll and the pinned
+   first column earn their keep and the tooltip flips back downward.
+
+   The narrow-viewport half of this lives with the tooltip rules, because the
+   scrollport and the tooltip's direction are one decision and must not be able
+   to drift apart. It also HAS to sit after them: same specificity, so source
+   order decides, and split across the file the flip silently lost. */
+.tablewrap { overflow: visible; margin: 0 0 26px; }
+.tablewrap table { margin-bottom: 0; }
+
+/* Without nowrap the table never actually overflows: it wraps "2026-08-24" onto
+   three lines and squeezes to fit, so overflow-x never engages and rows triple
+   in height. Forcing natural width is what makes the scroll box do its job.
+   Only the first column may wrap — it holds names, which can be long. */
+.tablewrap th, .tablewrap td { white-space: nowrap; }
+.tablewrap td:first-child { white-space: normal; }
+
+/* The activity log's first and second-to-last columns are a DATE and a commit
+   sha or PR number: coordinates and identifiers, which are measurement and must
+   not be set in a face with old-style figures. They carry no class of their own,
+   and the log is the only table with a `.title` column, so `:has()` is the only
+   handle the DOM offers — and no DOM change is available to me. It also lets the
+   date column keep `nowrap` against the rule above, which is what stops
+   "2026-08-24" from breaking at its hyphens into three lines when the first
+   column is the one squeezed inside the narrow-viewport scrollport.
+
+   Degradation if `:has()` is missing (pre-2022 engines): both columns render in
+   the serif with old-style figures. Legible, mildly bouncy, nothing hidden. */
+table:has(td.title) td:first-child {
+  font-family: var(--mono);
+  font-size: var(--type-data);
+  white-space: nowrap;
+}
+table:has(td.title) td:nth-last-child(2) { font-family: var(--mono); font-size: var(--type-data); }
+
+/* Commit subjects and PR titles are prose, and prose wraps. Left as nowrap the
+   activity log ran 261px past its container on the busiest scope, which is the
+   one place a scroll box is least welcome: the title IS the reason to read the
+   row, so pushing it off-screen defeats the column. Capped and wrapped rather
+   than ellipsised because a truncated title hides exactly the word that
+   distinguishes two similar commits. 50ch, not 46: `ch` is measured on the
+   font's zero, and Georgia's is narrower than the baseline sans's, so the same
+   literal would have silently tightened the measure by ~20px. */
+.tablewrap td.title { white-space: normal; max-width: 50ch; }
+
+/* Selected repository row on an organization page. Tinted rather than bordered,
+   so it reads as "this is the active scope" without adding a second grid line.
+   Outranks the pinned-column background below on specificity (0,2,3 against
+   0,2,1), so the selected row stays tinted while its first cell is pinned. */
+tbody tr.sel { background: var(--sel); }
+tbody tr.sel td:first-child { background: var(--sel); font-weight: 700; }
+
+/* Reader-marked rows. Deliberately AFTER `.sel` so a marked row inside the active
+   scope reads as marked: the scope is a fact about the page, the mark is the
+   reader's own act, and when they collide the reader's act wins.
+
+   `tr.pick:hover` restates the same colour because `tbody tr:hover` would
+   otherwise repaint a marked row as merely hovered — pointing at your own mark to
+   read it would make it look erased. Hover on a marked row is a no-op by design;
+   there is nothing left for it to disclose. */
+tbody tr.pick, tbody tr.pick:hover { background: var(--pick); }
+tbody tr.pick td:first-child { box-shadow: inset 3px 0 0 var(--pick-edge); }
+
+/* The count, which is also the only notice the feature exists. Set as a control
+   rather than a link: it performs an action on this page and navigates nowhere,
+   and blue here would be the one colour on this site that promises a destination. */
+.marks {
+  font: inherit; font-size: var(--type-label); font-family: var(--mono);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--fg); background: var(--pick);
+  border: 1px solid var(--pick-edge); border-radius: 3px;
+  padding: 3px 7px; margin-left: 10px; cursor: pointer; white-space: nowrap;
+}
+.marks:hover { background: var(--pick-edge); }
+
+/* Affiliation on its own line under the name. One organization for almost
+   everyone; a chain only when the contributor actually changed employer. */
+.report-name { margin: 3px 0; }
+.scope .when {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  /* This span carries a `data-help`, and the baseline gave it the cursor but not
+     the mark. One value, one meaning: if there is more to read, it is dotted. */
+  border-bottom: 1px dotted var(--dot);
+}
+.scope .arrow { color: var(--faint); }
+.scope.caveat { margin: -10px 0 16px; color: var(--faint); font-style: italic; }
+
+/* Provenance, in the same monospace as the masthead's dateline, so the page is
+   bracketed top and bottom by its own measurement stamp. */
+footer {
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: 12px;
+  border-top: 1px solid var(--rule);
+  padding-top: 16px;
+  margin-top: var(--space-section);
+}
+footer p { margin: 0 0 7px; }
+footer strong { color: var(--muted); }
+
+/* A derived figure carries its own definition on hover rather than deferring to
+   a page-level caveat block. Dotted underline signals there is more to read.
+
+   Built on data-help + ::after rather than the native `title` attribute: the
+   browser's tooltip delay is ~1s, unreachable from CSS or JS, and it then
+   self-dismisses after a few seconds. For a definition the reader is actively
+   reaching for, a second of nothing reads as broken. 60ms feels instant while
+   still being long enough that a cursor crossing the element does not flash it.
+
+   Accessibility trade-off, stated plainly: dropping `title` loses the native
+   screen-reader announcement. `tabindex="0"` keeps these keyboard-reachable and
+   :focus-visible shows the same text, but the definition is an enhancement —
+   every element carrying one already has self-sufficient visible text. */
+.help { position: relative; cursor: help; }
+/* The tooltip affordance is a dotted underline, which only reads as one on
+   inline text — on the block-level panel note it spanned the card and looked
+   like a rule. The note keeps its own layout; the span inside carries the hint. */
+.note .help { border-bottom: 1px dotted var(--dot); }
+th.help { text-decoration-line: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+
+.help::after {
+  content: attr(data-help);
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  z-index: 30;
+  width: max-content;
+  /* 290px is a MEASURED number, not a preference: it is the widest a panel
+     tooltip can be before a `.k` span in the right-hand summary column pushes
+     its own box past the page and drags the document sideways while hovered.
+     There is no CSS-only right-edge flip available for these — flipping the
+     last column would send the same tooltip off the LEFT edge once the columns
+     reflow to two tracks, and left overflow is unreachable, which is worse than
+     transient scroll. Widening it was the first thing I tried and the first
+     thing I put back. */
+  max-width: 290px;
+  padding: 9px 11px;
+  /* A pasted-in footnote: a slightly deeper cream than the page, closed by a
+     1px near-black rule. The baseline used a dark chip, which on paper is the
+     one thing that cannot be printed — and the light panel also removes the
+     stylesheet's only sub-4.5:1 declared colour, because there is no longer any
+     pale text anywhere in this file. Measured: 15.4:1. Separation comes from the
+     rule, not from a shadow; a shadow is not available in this direction. */
+  background: var(--tooltip);
+  border: 1px solid var(--rule);
+  color: var(--fg);
+  /* The `font` shorthand, deliberately: it resets weight, variant and
+     line-height in one declaration, so a definition rendered inside a
+     small-caps or tabular-figures context cannot inherit either. Letter-spacing
+     and text-transform are not part of the shorthand, hence the two below. */
+  font: 400 var(--type-data)/1.55 var(--serif);
+  letter-spacing: normal;
+  text-transform: none;
+  text-align: left;
+  white-space: normal;
+  /* display:none, NOT visibility:hidden. A hidden-but-laid-out box still
+     contributes to overflow, so 290px of invisible tooltip anchored near the
+     right edge dragged the whole document sideways — measured at 68px of body
+     h-scroll on a 1000px viewport, and it inflated every scrollWidth reading of
+     the panels that contain one. This is the file's only `display: none`, and it
+     hides no measured value: every element carrying a definition already renders
+     its own visible text.
+
+     No fade. A definition either is on screen or it is not, and easing its
+     opacity only delays reading it. The 60ms delay is kept, but now rides on
+     `display` alone, because it does different work from the fade: without it,
+     sweeping the pointer across nine column headers flashes nine tooltips.
+     allow-discrete is what makes a delay on a non-animatable property possible;
+     without support the tooltip simply appears at once. */
+  display: none;
+  transition: display .001s allow-discrete 60ms;
+  pointer-events: none;
+}
+.help:hover::after, .help:focus-visible::after { display: block; }
+/* Right-hand columns would push the tooltip off-screen. */
+th.help:nth-last-child(-n+3)::after { left: auto; right: 0; }
+
+/* Column tooltips open UPWARD, so a definition never covers the numbers it
+   defines. This only works because `.tablewrap` no longer clips at the full
+   measure (see there); the first attempt kept the scrollport and lost the top
+   47px of every tooltip, rendering the tail of a sentence with its opening words
+   cut off. Panel tooltips are unchanged — they have prose below them, not
+   figures, so downward costs nothing there. */
+th.help::after { top: auto; bottom: calc(100% + 5px); }
+
+/* ...except while that header is pinned, when upward means off-screen entirely
+   (measured — an 86px tooltip placed at y=-91, wholly invisible). Down is then
+   the only direction left, so it covers rows rather than nothing. `.stuck` is
+   published by syncStuck() in lib.js because CSS cannot yet ask whether a sticky
+   element is currently stuck; see that function for why the fact is measured
+   rather than assumed. */
+.tablewrap.stuck th.help::after { top: calc(100% + 5px); bottom: auto; }
+
+/* Narrow viewports: the table genuinely exceeds its container, so the scroll box
+   and the pinned first column earn their keep — and the clipping they bring back
+   forces the tooltip down again. One block, so the scrollport, the pinned column
+   and the tooltip direction cannot be changed independently and end up
+   contradicting each other.
+
+   The pinned column belongs HERE and nowhere else: above the measure
+   `.tablewrap` is `overflow: visible`, so there is nothing to scroll and pinning
+   buys the reader nothing — all that survived at full width was the stacking
+   context `position: sticky` creates unconditionally, which is what forced a
+   z-index rule on the corner cell to stop a body cell painting over the pinned
+   header. Scoped to where it does work, that whole interaction disappears above
+   1239px. */
+@media (max-width: 1239px) {
+  .tablewrap { overflow-x: auto; }
+  th.help::after { top: calc(100% + 5px); bottom: auto; }
+
+  /* First column pins while the metric columns scroll. Without this, scrolling
+     right to read a count loses the row label that gives it meaning — a table of
+     anonymous numbers. Needs an opaque background or scrolled cells show through,
+     and the hover tint has to be repeated on the cell for the same reason. */
+  .tablewrap th:first-child, .tablewrap td:first-child {
+    position: sticky;
+    left: 0;
+    background: var(--bg);
+    z-index: 2;
+  }
+  .tablewrap tbody tr:hover td:first-child { background: var(--hover); }
+
+  /* Third claimant on that one cell, and it has to outrank the other two.
+     `.tablewrap td:first-child` paints --bg to stop scrolled cells showing
+     through, and the hover rule above lands at (0,3,3) — above the (0,2,3) that
+     is enough to beat `.sel` out in the open. Left unstated, a marked row lost its
+     tint at the pin the moment the pointer touched it: the mark broke into two
+     colours across the frozen column, at one breakpoint, on hover only. Both
+     selectors are named so the mark survives hover as well as rest. */
+  .tablewrap tbody tr.pick td:first-child,
+  .tablewrap tbody tr.pick:hover td:first-child { background: var(--pick); }
+
+  /* The corner cell sticks on BOTH axes, so it has to outrank both stacks. Left
+     at the shared `z-index: 2` it tied with the body's sticky first column and
+     lost on DOM order, and the pinned header's first cell rendered a
+     contributor's name where NAME belongs — a header that lies rather than one
+     that is merely hidden. */
+  .tablewrap thead tr:last-child th:first-child { z-index: 4; }
+}
+
+/* Phone measure. 16px gutters instead of 20 return 8px of content width to a
+   350px viewport, which is the difference between a two-line and a three-line
+   panel label. The masthead steps down with it; nothing else needs to move,
+   because the summary columns collapse on their own (see `.groups`) and the
+   table is inside a scrollport by this width. */
+@media (max-width: 560px) {
+  .wrap {
+    padding-left: var(--gutter-mobile);
+    padding-right: var(--gutter-mobile);
+    padding-bottom: 56px;
+  }
+  h1 { font-size: 26px; }
+  /* The navigation labels do not fit a phone-width row. Keep every destination
+     visible in two equal columns rather than widening the page or hiding one. */
+  nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px 2px; }
+  nav a {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 44px; text-align: center; padding: 9px 3px; letter-spacing: 0.02em;
+  }
+  /* Tracks h1's step up so the mark keeps the same relationship to the wordmark;
+     left at the desktop value it would read smaller here than it does there. */
+  .mark { height: 29px; }
+
+  /* Stacked AND aligned on both edges. Left as the desktop flex row, the four
+     controls wrap to four rows of four different widths, and the selects begin
+     at four different x positions because "metric", "org" and "repo" are
+     different lengths — a ragged block on both sides. Two columns with
+     `display: contents` on the labels promotes each label's text and its select
+     into the grid itself, so every label shares column 1 and every control
+     shares column 2. `max-content` sizes column 1 to the longest label, so the
+     alignment holds without hard-coding a width for text this file does not own.
+
+     The label keeps its control association through the DOM, not through layout,
+     so dissolving its box does not break the hit target. */
+  .controls {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 9px 10px;
+    align-items: center;
+  }
+  .controls label { display: contents; }
+  /* The title takes its own full-width row rather than the `max-content` first
+     column, which had squeezed it to the width of the widest CONTROL below it
+     and pushed everything after it one cell out of alignment. A heading is not a
+     form field and should not be measured against one. */
+  .controls.bar .section-heading { grid-column: 1 / -1; margin-bottom: 2px; }
+  /* Full measure on its own row: the filter has no label to sit beside, and a
+     190px input next to full-width selects is the ragged edge again. */
+  .controls input { grid-column: 1 / -1; width: auto; max-width: none; }
+  /* Own row, left-aligned, for the same reason as the heading above: dropped into
+     the narrow `max-content` column it was measured against a form field and had
+     145px of the 155px available at "14 marked", so a four-digit count would have
+     pushed its own text out of its cell. `nowrap` means it cannot recover by
+     wrapping, and shortening the label on mobile alone would give one control two
+     names. */
+  .marks { grid-column: 1 / -1; justify-self: start; margin-left: 0; }
+
+  /* A flex spacer in a grid is just an empty cell that shifts everything after
+     it into the wrong column. */
+  .spacer { display: none; }
+}
+
+/* Co-authorship is participation, not a size stat: separated from the diff
+   numbers below it so a new metric is not mistaken for a fourth line count. */
+.row.kin .v { color: var(--fg); }
+.row.kin .k { color: var(--fg); border-bottom: 1px dotted var(--dot); }
+/* The separation panels.js actually asks for is BELOW this row — co-authorship
+   sits with the lead count, the size stats sit under it. `.row` is
+   `display: contents` and generates no box, so it can carry neither margin nor
+   rule; padding on both cells of the FOLLOWING row opens the gap instead, and
+   applying it to both keeps them on their shared baseline. */
+.row.kin + .row .v, .row.kin + .row .k { padding-top: 7px; }
+
+/* Active metrics are identified in the header only. Values remain ink, and the
+   tooltip retains exclusive ownership of the header's ::after pseudo-element. */
+th.active-metric { color: var(--link); }
+.muted { color: var(--faint); font-variant-numeric: tabular-nums; }
+
+/* One global focus ring also covers keyboard-reachable definition targets. */
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+
+/* A 60ms delay is not motion, but it is a timed effect on a reader who asked for
+   none. Instant is the honest answer; the anti-flash trade-off is theirs to lose. */
+@media (prefers-reduced-motion: reduce) {
+  .help::after { transition-delay: 0s; }
+}
+
+/* The thesis, cashed in: a page claiming to be a printed statistical appendix
+   should survive being printed. Only three rules are needed, because the design
+   already has no boxes, no tints behind text and no shadows to break across a
+   sheet — and `thead` needs no `display` declaration here, since the UA sheet
+   already makes it a table-header-group and engines already repeat it per page.
+
+   Everything below is a real behaviour change, not decoration. */
+@media print {
+  /* The narrow-viewport scrollport DOES apply at print widths (~794px CSS px),
+     and a scrollport prints exactly one screenful of a 13-column table and
+     silently drops the rest — this project's worst failure mode, on paper. */
+  .tablewrap { overflow: visible; }
+  /* Nothing to stick to on a sheet. Sticky in paged media is under-specified and
+     has painted at the wrong offset; the pinned first column is the same hazard,
+     so both go static rather than being trusted. */
+  thead tr:last-child th { position: static; }
+  .tablewrap th:first-child, .tablewrap td:first-child { position: static; }
+  /* Keep the two header rows together, and keep a wrapped title with its row. */
+  thead, tbody tr { break-inside: avoid; }
+}

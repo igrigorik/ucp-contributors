@@ -1,0 +1,143 @@
+// Canonical organizations.
+//
+// `domains` is read by `audit` ONLY, to suggest assignments for unmapped
+// identities. `derive` never infers — it reads data/contributors.json5 and
+// nothing else. Improving a rule here can therefore never silently rewrite a
+// published number.
+{
+  google:     { name: "Google",         domains: ["google.com"] },
+  shopify:    { name: "Shopify",        domains: ["shopify.com"] },
+  tiktok:     { name: "TikTok",         domains: ["bytedance.com", "tiktok.com"] },
+  stripe:     { name: "Stripe",         domains: ["stripe.com"] },
+  paypal:     { name: "PayPal",         domains: ["paypal.com"] },
+  meta:       { name: "Meta",           domains: ["fb.com", "meta.com"] },
+  microsoft:  { name: "Microsoft",      domains: ["microsoft.com"] },
+  // Futurewei Technologies is Huawei's US R&D subsidiary, and the one
+  // contributor here describes it that way themselves, so it rolls up.
+  huawei:     { name: "Huawei",         domains: ["huawei.com", "futurewei.com"] },
+  salesforce: { name: "Salesforce",     domains: ["salesforce.com"] },
+  turkcell:   { name: "Turkcell",       domains: ["turkcell.com.tr"] },
+  cloudflare: { name: "Cloudflare",     domains: ["cloudflare.com"] },
+  firmly:     { name: "Firmly",         domains: ["firmly.ai"] },
+  forter:     { name: "Forter",         domains: ["forter.com"] },
+  tracer:     { name: "Tracer",         domains: ["tracerml.ai"] },
+  algovoi:    { name: "AlgoVoi",        domains: ["algovoi.co.uk"] },
+  pennant:    { name: "Pennant",        domains: ["getpennant.ai"] },
+  brainai:    { name: "brainAI",        domains: ["brainai.bot"] },
+  amazon:     { name: "Amazon",         domains: ["amazon.com"] },
+  nike:       { name: "Nike",           domains: ["nike.com"] },
+  amadeus:    { name: "Amadeus",        domains: ["amadeus.com"] },
+  adyen:      { name: "Adyen",          domains: ["adyen.com"] },
+  target:     { name: "Target",         domains: ["target.com"] },
+  etsy:       { name: "Etsy",           domains: ["etsy.com"] },
+  wayfair:    { name: "Wayfair",        domains: ["wayfair.com"] },
+  samsung:    { name: "Samsung",        domains: ["samsung.com"] },
+  intuit:     { name: "Intuit",         domains: ["intuit.com"] },
+  razorpay:   { name: "Razorpay",       domains: ["razorpay.com"] },
+  mercadopago:{ name: "Mercado Pago",   domains: ["mercadopago.com", "mercadolibre.com"] },
+  commercetools: { name: "commercetools", domains: ["commercetools.com"] },
+  ppro:       { name: "PPRO",           domains: ["ppro.com"] },
+  vipps:      { name: "Vipps MobilePay", domains: ["vippsmobilepay.com"] },
+  descope:    { name: "Descope",        domains: ["descope.com"] },
+  kakao:      { name: "Kakao",          domains: ["kakaocorp.com"] },
+  voucherify: { name: "Voucherify",     domains: ["voucherify.io"] },
+  facet:      { name: "Facet" },
+  xpay:       { name: "xPay" },
+  hiddenloop: { name: "Hiddenloop",     domains: ["hiddenloop.com"] },
+  brink:      { name: "Brink AI Labs" },
+  taoq:       { name: "TaoQ AI Labs" },
+  wemicroit:  { name: "WeMicroIT" },
+  breadfinancial: { name: "Bread Financial" },
+  bridgefund: { name: "BridgeFund" },
+  merchantstamp: { name: "MerchantStamp" },
+  indicium:   { name: "Indicium" },
+  zologic:    { name: "Zologic" },
+  pathcourse: { name: "PathCourse Health" },
+
+  // Self-reported on the contributor's own GitHub profile. Mostly one person
+  // each: recorded because they told us, not because the volume is meaningful.
+  algolia:    { name: "Algolia" },
+  armorcode:  { name: "ArmorCode" },
+  atwix:      { name: "Atwix" },
+  ayatacommerce:{ name: "AyataCommerce", domains: ["ayatacommerce.com"] },
+  bigcommerce:{ name: "BigCommerce" },
+  blockydevs: { name: "BlockyDevs" },
+  channable:  { name: "Channable" },
+  criteo:     { name: "Criteo" },
+  demandops:  { name: "DemandOps" },
+  ethiccodes: { name: "EthicCodes" },
+  gadjahmada: { name: "Universitas Gadjah Mada" },
+  globalpayments:{ name: "Global Payments" },
+  hilt:       { name: "Hilt" },
+  insider:    { name: "Insider" },
+  klarna:     { name: "Klarna" },
+  kustomcheckout:{ name: "Kustom" },
+  kyalabs:    { name: "Kya Labs" },
+  landolakes: { name: "Land O'Lakes" },
+  levrofin:   { name: "Levro" },
+  lumivate:   { name: "LUMIVATE" },
+  makerinc:   { name: "Maker" },
+  nekuda:     { name: "Nekuda" },
+  nvidia:     { name: "NVIDIA" },
+  openattribution:{ name: "Open Attribution" },
+  optimizely: { name: "Optimizely" },
+  pulsecheck: { name: "PulseCheck AI" },
+  rootline:   { name: "Rootline" },
+  sabre:      { name: "Sabre" },
+  shopware:   { name: "Shopware" },
+  starbucks:  { name: "Starbucks" },
+  upsonic:    { name: "Upsonic" },
+  vestra:     { name: "Vestra AI" },
+  virtocommerce:{ name: "Virto Commerce" },
+  zeepcode:   { name: "Zeepcode" },
+  zolofy:     { name: "Zolofy" },
+
+  // 2026-11-08 intake. Each named by a contributor's own profile, email, login
+  // token, or published link (source after //). No domains on institutions.
+  "2aagency": { name: "2A Agency" },  // https://github.com/meteque1213
+  airshelf:   { name: "AirShelf", domains: ["airshelf.ai", "airshelf.com"] },  // https://github.com/evoleinik
+  cafe24:     { name: "Cafe24" },  // https://github.com/cafe24-sbmoon
+  dertour:    { name: "DERTOUR Group", domains: ["dertour-group.com"] },  // https://github.com/doejon
+  devlab:     { name: "Devlab", domains: ["devlab.group"] },  // https://github.com/SergeevDmitry
+  directbooker:{ name: "DirectBooker", domains: ["directbooker.com"] },  // https://github.com/sanj-directbooker
+  eatstreet:  { name: "EatStreet", domains: ["eatstreet.com"] },  // https://github.com/smasma42
+  edgeandnode:{ name: "Edge & Node" },  // https://github.com/matiasedgeandnode
+  feedonomics:{ name: "Feedonomics" },  // https://github.com/kushalkh04
+  generalmachines:{ name: "General Machines", domains: ["generalmachines.ai"] },  // https://github.com/generalmachines
+  godaddy:    { name: "GoDaddy", domains: ["godaddy.com"] },  // https://github.com/wcole1-godaddy
+  gofundme:   { name: "GoFundMe" },  // https://github.com/ESoch
+  gordonai:   { name: "Gordon AI", domains: ["withgordon.ai"] },  // https://github.com/ank3it
+  hemmabo:    { name: "HemmaBo", domains: ["hemmabo.com"] },  // https://github.com/HemmaBo-se
+  iths:       { name: "ITHS" },  // https://github.com/kotali
+  ivinco:     { name: "Ivinco" },  // https://github.com/pavel-ivinco
+  iwantthat:  { name: "I Want That! Inc", domains: ["useiwantthat.com"] },  // https://github.com/c-e-daly
+  loke:       { name: "LOKE", domains: ["loke.global"] },  // https://github.com/LOKE
+  mlbtechsolutions:{ name: "MLBTechSolutions" },  // https://github.com/MLB-TechSolutions
+  newgeneration:{ name: "New Generation", domains: ["new-gen.ai"] },  // https://github.com/new-gen-eng
+  octolize:   { name: "Octolize" },  // https://github.com/octolize
+  orkhon:     { name: "Orkhon AI", domains: ["orkhon.ai"] },  // https://github.com/orkhonai
+  outgleam:   { name: "Outgleam", domains: ["outgleamai.com"] },  // https://outgleamai.com/
+  pintorproject:{ name: "Pintor Project", domains: ["pintorproject.cl"] },  // https://github.com/Pintor-Project
+  polytechnique:{ name: "École Polytechnique" },  // https://github.com/schneider-f
+  prayantr:   { name: "Prayantr", domains: ["prayantr.com"] },  // https://github.com/amitkssolanki
+  sainsburys: { name: "Sainsbury's" },  // https://github.com/prateekg17
+  savethebrain:{ name: "SAVE THE BRAIN" },  // https://github.com/giuseppesocci-bot
+  senueren:   { name: "Senueren" },  // https://github.com/shxnque
+  sharafdg:   { name: "Sharaf DG" },  // https://github.com/wakqasahmed
+  shopline:   { name: "SHOPLINE" },  // https://github.com/BarryLzc
+  shopsavvy:  { name: "ShopSavvy" },  // https://github.com/jakemarsh
+  stabilerewards:{ name: "StabileRewards", domains: ["stabilerewards.com"] },  // https://github.com/yangw831
+  tradecentric:{ name: "TradeCentric", domains: ["tradecentric.com"] },  // https://github.com/tc-steven-frechette
+  wayloai:    { name: "WayloAI", domains: ["wayloai.com"] },  // https://github.com/WayloAI
+  wellsfargo: { name: "Wells Fargo" },  // https://github.com/sanjanar06
+
+  // Pseudo-orgs. Same code path, explicitly not companies.
+  //
+  //   (absent from contributors.json5) = nobody has looked yet
+  //   independent                      = looked; personal capacity
+  //   undisclosed                      = looked; no public affiliation found
+  //   bot                              = automation, excluded from people counts
+  independent: { name: "Independent" },
+  undisclosed: { name: "Undisclosed" },
+  bot:         { name: "Automation" },
+}

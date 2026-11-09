@@ -1,0 +1,18 @@
+# Generated: acquisition mirrors and raw layer, derived site data, and the
+# staged Pages copy. Publication rebuilds all three from source in Actions.
+raw/
+site/data/
+_site/
+node_modules/
+
+# Local design-review snapshots, not publication source.
+.impeccable/
+LOOPS.md
+
+# Local secrets and machine noise.
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+.cache/

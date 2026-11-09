@@ -1,0 +1,548 @@
+// One record per human. Hand-maintained; this is the source of truth.
+//
+//   emails[]  collapses multiple git identities (work + personal) onto one person
+//   orgs[]    affiliation spans: `from` inclusive, `until` exclusive, both optional
+//   rosterNames[]  exact MAINTAINERS.md name spellings that are this person —
+//             identity aliases like emails, never a list of councils. Which
+//             councils a person sits on is read from the roster every run.
+//
+// Wrong about you? Edit your record and open a PR — self-reported beats anything
+// we can infer. Absent from this file means nobody has looked yet, which is a
+// different fact from `independent` (looked, personal capacity) and
+// `undisclosed` (looked, no public affiliation found).
+{
+  // ---------------------------------------------------------------- Google
+  "ryan-cheung":        { name: "Ryan Cheung", emails: ["cheungr@google.com"], orgs: [{ org: "google" }] },
+  "federico-damato":    { emails: ["damaz@google.com", "federico.damato91@gmail.com"], orgs: [{ org: "google" }] },
+  "drew-olson":         { emails: ["drewolson@google.com"], orgs: [{ org: "google" }],
+                          rosterNames: ["Drew Olson"] },
+  "jing-li":            { emails: ["jingyli@google.com", "jingyi.li0310@gmail.com"], orgs: [{ org: "google" }],
+                          rosterNames: ["Jing Li"] },
+  "amit-handa":         { emails: ["amithanda@google.com", "amhanda@gmail.com"], orgs: [{ org: "google" }],
+                          rosterNames: ["Amit Handa"] },
+  "peyman-amanian":     { name: "Peyman", emails: ["pemamian@google.com"], orgs: [{ org: "google" }] },
+  "krishna-thota":      { name: "Krishna Chaitanya Thota", emails: ["kcthota@google.com", "kcthota@gmail.com"], orgs: [{ org: "google" }] },
+  "enric-cusell":       { emails: ["cusell@google.com"], orgs: [{ org: "google" }] },
+  "florin-iucha":       { emails: ["fiucha@google.com", "florin@signbit.net"], orgs: [{ org: "google" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/33417ae92157dfd470b1ed68cb14be019140c502 https://github.com/Universal-Commerce-Protocol/ucp/commit/8b021143c8517b49166edd64ffac4e1a8c887841
+  "guillaume-v":        { emails: ["4216770+ptiper@users.noreply.github.com", "guillaum.verdier@gmail.com", "guillaumev@google.com"], orgs: [{ org: "google" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/eab3c238f1eaa085e7c955bc1610dd24b005cb8e
+  "akshay-b":           { emails: ["132107354+aksbro-gpu@users.noreply.github.com", "akshaybroota@google.com"], orgs: [{ org: "google" }] },
+  "daniel-dittenhafer": { emails: ["daniel@dittenhafer.net", "ddittenhafer@google.com"], orgs: [{ org: "google" }] },
+  "deinck":             { emails: ["deinck@google.com"], orgs: [{ org: "google" }] },
+  "mitko-mitev":        { emails: ["mmitev@google.com"], orgs: [{ org: "google" }] },
+  "ziwu-zhou":          { emails: ["ziwuzhou@google.com"], orgs: [{ org: "google" }] },
+  "caroline-g":         { name: "Caroline", emails: ["gcaroline@google.com"], orgs: [{ org: "google" }] },
+  "niranjan-manjunath": { emails: ["niry@google.com"], orgs: [{ org: "google" }],
+                          rosterNames: ["Niranjan Manjunath"] },
+  "ryan-conigliaro":    { emails: ["rconigliaro@google.com"], orgs: [{ org: "google" }] },
+  "lavi-nigam":         { emails: ["98014943+lavinigam-gcp@users.noreply.github.com",
+                                   "lavinigam@google.com"], orgs: [{ org: "google" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/3cd3176a352386900425cc33f86cf999fada4627
+  "dan-tsai":           { emails: ["tsai.dan@gmail.com", "dantsai@google.com"], orgs: [{ org: "google" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/59dac5e00383d4688c1679fed987266fbb9b529d
+  "dylan-koch":         { emails: ["dkoch74@gmail.com", "dylankoch@google.com"], orgs: [{ org: "google" }] },
+  "dario-guzik":        { emails: ["dario@guzik.com.ar"], orgs: [{ org: "google" }] },
+  "a-googler":          { name: "A Googler", emails: ["no-reply@google.com"], orgs: [{ org: "google" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/7788225b72ba61506bac9ff8f1902cfef7b7b732
+  "yanhe-chen":         { name: "Yanhe Chen", emails: ["71290334+yanhechen@users.noreply.github.com", "rosacyhrb@gmail.com"], orgs: [{ org: "google" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/python-sdk/commit/dc95dadbab0a1faa9bf0e09cada5bb61efd34009
+  "costin-sin":         { name: "Costin Sin", emails: ["sin.costinrobert@gmail.com", "cosin@google.com"], orgs: [{ org: "google" }] },
+
+  // --------------------------------------------------------------- Shopify
+  "ilya-grigorik":      { emails: ["ilya@grigorik.com", "ilya@igvita.com"], orgs: [{ org: "shopify" }],
+                          rosterNames: ["Ilya Grigorik"] },
+  "daniel-wyckoff":     { emails: ["daniel.wyckoff@shopify.com", "daniel@wyckoff.ca"], orgs: [{ org: "shopify" }],
+                          rosterNames: ["Daniel Wyckoff"] },
+  "chris-sauve":        { emails: ["chris.sauve@shopify.com"], orgs: [{ org: "shopify" }] },
+  "alex-park":          { emails: ["alex.park@shopify.com"], orgs: [{ org: "shopify" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/909ede665835e3d459c30f4c209820a88c58f9cc
+  "westin-wrzesinski":  { emails: ["westeezy@users.noreply.github.com", "westin.wrzesinski@gmail.com"], orgs: [{ org: "shopify" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/28ad3ab40ecdaf8898affe8f146e1ecf71d34164
+  "lee-richmond":       { emails: ["richmolj@gmail.com", "lee.richmond@shopify.com"], orgs: [{ org: "shopify" }],
+                          rosterNames: ["Lee Richmond"] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/6a0e98ea9084fc4942ff8f77b986ccda2f4042f9
+  "dan-kift":           { emails: ["dankift@gmail.com", "daniel.kift@shopify.com"], orgs: [{ org: "shopify" }] },
+
+  // ---------------------------------------------------------------- TikTok
+  "shuo-ren":           { name: "Shuo Ren", emails: ["tyrion.lh@bytedance.com"], orgs: [{ org: "tiktok" }] },
+  "yingzhe-hu":         { name: "Yingzhe Hu", emails: ["yingzhe.hu@bytedance.com"], orgs: [{ org: "tiktok" }] },
+  "xiaolong-zhang":     { emails: ["acc110789@gmail.com", "zhangsan.123@bytedance.com"], orgs: [{ org: "tiktok" }] },
+  "horace-wang":        { name: "Horace Wang", emails: ["horaceewang@gmail.com", "wangjun.111@bytedance.com"], orgs: [{ org: "tiktok" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/87ae9a75eaf043a55073e59caaab21125aa78adf
+  "fanou-zeng":         { name: "Fanou Zeng", emails: ["124567600+fanouzeng-tt@users.noreply.github.com", "124567600+oufanz@users.noreply.github.com", "18280587072@163.com"], orgs: [{ org: "tiktok" }] },
+  "wenshuang-quan":     { name: "Wenshuang Quan", emails: ["quanwenshuang@gmail.com"], orgs: [{ org: "tiktok" }] },
+  "tianyu-bing":        { name: "Tianyu Bing", emails: ["tianyubing@bytedance.com"], orgs: [{ org: "tiktok" }] },
+
+  // ------------------------------------------------------- other companies
+  "prasad-wangikar":    { emails: ["prasadw@stripe.com"], orgs: [{ org: "stripe" }],
+                          rosterNames: ["Prasad Wangikar"] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/6b0de3d7218ff2fc1bdc8368ec7e2ca3f0e53355
+  "pranshu-goyal":      { emails: ["pragoyal@paypal.com", "pranshu.goyal011@gmail.com"], orgs: [{ org: "paypal" }] },
+  "james-andersen":     { emails: ["james.j.andersen@gmail.com"], orgs: [{ org: "meta" }],
+                          rosterNames: ["James Andersen"] },
+  "karan-goel":         { emails: ["karangoel16@yahoo.com"], orgs: [{ org: "meta" }] },
+  "vaithee-baskaran":   { emails: ["sbeashwar@outlook.com", "vaits@microsoft.com"], orgs: [{ org: "microsoft" }] },
+  "nachiket-torwekar":  { emails: ["nachiket.torwekar@gmail.com"], orgs: [{ org: "nike" }] },
+  "waldek-herka":       { emails: ["87032474+wherka-ama@users.noreply.github.com"], orgs: [{ org: "amadeus" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/71a40830536bf72efd38c9d1de8d2f40ba7dbb69
+  "sri-akula":          { emails: ["78380822+sriakula1@users.noreply.github.com", "xpaysh@gmail.com"], orgs: [{ org: "xpay" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/ea3bab5e55ab43c6d67963f6409b641b5aa50d32
+  "matthew-hutchinson": { emails: ["matt@hiddenloop.com", "matt.hutchinson@shopify.com"], orgs: [{ org: "hiddenloop" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/d5d2e0b3b35c94fad40306d656307b55b1dd15f3
+  "gauresh-pai":        { emails: ["107191770+gaureshpai@users.noreply.github.com", "paigauresh@gmail.com"], orgs: [{ org: "brink" }] },
+  "leone-perdigao":     { name: "Leone", emails: ["leone.lage@gmail.com"], orgs: [{ org: "taoq" }] },
+  "james-thompson":     { emails: ["thompson.tomo@outlook.com"], orgs: [{ org: "wemicroit" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/2da4cfd8bbbc2061f9926328e086b6862b79db9c
+  "vishal-katyal":      { name: "Vishal Katyal", logins: ["vishkaty", "katyalai"],
+                          emails: ["147529812+vishkaty@users.noreply.github.com", "vishkaty@users.noreply.github.com", "vishal@katyal.ai", "katyal.vishal@gmail.com"], orgs: [{ org: "firmly", from: "2025-10-01" }] },
+  "muzaffer-senkal":    { name: "Muzaffer Şenkal", emails: ["muzaffer727@hotmail.com"], orgs: [{ org: "turkcell" }] },
+  "patrick-jordan":     { name: "Patrick R. Jordan", emails: ["patrick.r.jordan@gmail.com"], logins: ["pjordan"],
+                          orgs: [{ org: "microsoft" }],
+                          rosterNames: ["Patrick Jordan"] },
+  "culbertz":           { logins: ["culbertz"], emails: ["i.travel@live.com"], orgs: [{ org: "microsoft" }] },
+
+  // The job-change case — the reason spans exist at all.
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/754976b024a4238c4220c77244abffdf3e0b3c8d
+  "greg-smith":         { emails: ["gregoryryansmith@gmail.com", "smithgr@google.com", "smithgrg@amazon.com"], logins: ["gsmith85"],  // +smithgr@google.com,+gsmith85: ucp@40e03b9fe311 author gsmith85; spans untouched; observed 2026-11-08
+                          orgs: [{ org: "amazon", until: "2026-06-15" },
+                                 { org: "google", from: "2026-06-15" }],
+                          rosterNames: ["Greg Smith"] },
+
+  // ----------------------------------------------------------- undisclosed
+  // Looked and found no employer: none named in the profile, in the login, or
+  // anywhere they publish. `undisclosed` records that absence — it is not a
+  // claim that they contribute in a personal capacity.
+  "sakina-roufid":      { emails: ["sakinaroufid@gmail.com", "sakinaroufid@users.noreply.github.com"], orgs: [{ org: "undisclosed" }] },
+  "nan-l":              { name: "NanL3001", emails: ["nearlyforget@yahoo.com", "nearlyforget2012@gmail.com"], orgs: [{ org: "undisclosed" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/00345e16432e97eecce11bc6890cff36f5f332ef https://github.com/Universal-Commerce-Protocol/ucp/commit/a2fab6ddd2bb85fe87ffacf08ab12f10b7ba26c6
+  "nicholas-hall":      { emails: ["55357993+nicholasjameshall@users.noreply.github.com", "hall.james.nicholas@gmail.com", "halln@google.com"], orgs: [{ org: "undisclosed" }] },
+  "muhammed-kilic":     { emails: ["muhammeddkilicc@gmail.com"], orgs: [{ org: "undisclosed" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/5a6847b9f67ae54bac7a9ca6c071948eaf19e7b8
+  "sanghak-lee":        { emails: ["dltkdgkr_@naver.com", "dltkdgkr3542@gmail.com"], orgs: [{ org: "undisclosed" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/d358327db653584d57dcf92fdb94bf71096674da
+  "dylan-farrell":      { emails: ["31576059+dylanfarrell@users.noreply.github.com", "dylan@getcatalog.ai"], orgs: [{ org: "undisclosed" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/d103e71f0ea0a77f80ad9d7c0df65d3952bf27d0
+  "semenovm":           { emails: ["68052873+semenovm@users.noreply.github.com", "msemenov@google.com"], orgs: [{ org: "undisclosed" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/python-sdk/commit/14f18a2f38153d3f083948c09d262595b4dfa37a
+  "segiodongo":         { emails: ["86005952+segiodongo@users.noreply.github.com", "segi.odongo@gmail.com"], orgs: [{ org: "undisclosed" }] },
+  "dipankar1415":       { emails: ["114633641+dipankar1415@users.noreply.github.com", "dip2025a@gmail.com",
+                                   "dipankaraws01@gmail.com"], orgs: [{ org: "undisclosed" }] },
+
+  // ------------------------------------------------------------------ bots
+  // Getting these right matters more than it looks. google-cla and
+  // gemini-code-assist carry the comment and review volume of active reviewers,
+  // and the latter's profile says "@google" — so trusting profile company
+  // blindly would have credited Google with bot review labour.
+  "dependabot":         { emails: ["49699333+dependabot[bot]@users.noreply.github.com"],
+                          logins: ["dependabot"], orgs: [{ org: "bot" }] },
+  "github-actions":     { emails: ["41898282+github-actions[bot]@users.noreply.github.com"],
+                          logins: ["github-actions"], orgs: [{ org: "bot" }] },
+  "ucp-automation":     { emails: ["268080282+ucp-automation[bot]@users.noreply.github.com"],
+                          logins: ["ucp-automation"], orgs: [{ org: "bot" }] },
+  "ucp-authors":        { name: "UCP Authors", emails: ["no-reply@ucp.dev"], orgs: [{ org: "bot" }] },
+  "google-cla":         { name: "Google CLA bot", logins: ["google-cla"], orgs: [{ org: "bot" }] },
+  "gemini-code-assist": { name: "Gemini Code Assist",
+                          emails: ["176961590+gemini-code-assist[bot]@users.noreply.github.com"],
+                          logins: ["gemini-code-assist"], orgs: [{ org: "bot" }] },
+
+  // =========================================================================
+  // Below: people visible only through the GitHub overlay — they review, open
+  // PRs, and argue in issues without ever landing a commit. This is the labour
+  // a git-only baseline cannot see at all.
+  // =========================================================================
+
+  // Google
+  "anurag-sinha":       { name: "Anurag Sinha", logins: ["sinhanurag"], orgs: [{ org: "google" }],
+                          rosterNames: ["Anurag Sinha"] },
+  "mark-mohades":       { name: "Mark Mohades", logins: ["mmohades"], orgs: [{ org: "google" }] },
+  "kelly-seidl":        { name: "Kelly Seidl", logins: ["kmcduffie"], orgs: [{ org: "google" }] },
+  "gareth-oliver":      { name: "Gareth Oliver", logins: ["garethcoliver"], orgs: [{ org: "google" }] },
+  "carol-w":            { name: "Carol W", logins: ["carol-w-tech"], orgs: [{ org: "google" }] },
+  "nicolas-garnier":    { name: "Nicolas Garnier", logins: ["nicolasgarnier"], orgs: [{ org: "google" }] },
+  "alex-jansen":        { name: "Alex Jansen", logins: ["alex-jansen"], orgs: [{ org: "google" }] },
+
+  // Shopify
+  "knight-lin":         { name: "Knight Lin", logins: ["knightlin-shopify"], orgs: [{ org: "shopify" }] },
+  "gil-greenberg":      { name: "Gil Greenberg", logins: ["gil--"], emails: ["3484527+gil--@users.noreply.github.com"],
+                          orgs: [{ org: "shopify" }],
+                          rosterNames: ["Gil Greenberg"] },  // +noreply id 3484527 = gil--; Shopping TC per MAINTAINERS.md@ddd1b3f; observed 2026-11-08
+  "david-pettersson":   { name: "David Pettersson", logins: ["shopdave"],
+                          emails: ["david.pettersson@shopify.com"], orgs: [{ org: "shopify" }] },
+  "emmanuel-milou":     { name: "Emmanuel Milou", logins: ["manumilou"], orgs: [{ org: "shopify" }] },
+
+  // PayPal
+  "hemanth-hm":         { name: "Hemanth HM", logins: ["hemanth"], orgs: [{ org: "paypal" }] },
+  "shane-brunson":      { name: "Shane Brunson", logins: ["wsbrunson"], orgs: [{ org: "paypal" }] },
+
+  // Other companies, from self-reported profile `company`, confirmed by hand.
+  "maxime-najim":       { name: "Maxime Najim", logins: ["maximenajim"], orgs: [{ org: "target" }],
+                          rosterNames: ["Maxime Najim"] },
+  "gabriel-rodrigues":  { name: "Gabriel de Andrade Rodrigues", logins: ["gforgab"], orgs: [{ org: "mercadopago" }] },
+  "prateek-srivastava": { name: "Prateek Srivastava", logins: ["prateek-ct"], orgs: [{ org: "commercetools" }] },
+  "paras-kathuria":     { name: "Paras Kathuria", logins: ["paraskathuria-dev"], orgs: [{ org: "razorpay" }] },
+  "himanshu-shekhar":   { name: "Himanshu Shekhar", logins: ["himanshu-rzp"], orgs: [{ org: "razorpay" }] },
+  "rzp-slash":          { logins: ["rzp-slash"], orgs: [{ org: "razorpay" }] },
+  "weston-ale":         { name: "Weston", logins: ["westonale-facet", "westonale"], orgs: [{ org: "facet" }] },  // +westonale: renamed from westonale-facet (now 404); same name/Facet profile; observed 2026-11-08
+  "tobias-allden":      { name: "Tobias Alldén", logins: ["alldentobias"], orgs: [{ org: "vipps" }] },
+  "sumudu-lansakara":   { name: "Sumudu Lansakara", logins: ["sumudul", "sumudulansakara"],
+                          emails: ["sumudu.lansakara@gmail.com"], orgs: [{ org: "ppro" }] },  // +2nd account sumudulansakara: ucp#672 authored by it, sumudul replies as author; ucp@54108131de0a; observed 2026-11-08
+  "arjun-intuit":       { name: "Arjun", logins: ["arjun2075"], emails: ["arjun2075@gmail.com"], orgs: [{ org: "intuit" }] },  // +arjun2075@gmail.com: samples@1927aba898e8 author arjun2075; name kept; observed 2026-11-08
+  "tomasz-pindel":      { name: "Tomasz Pindel", logins: ["tpindel"], orgs: [{ org: "voucherify" }] },
+  "rohit-ganguly":      { name: "Rohit Ganguly", logins: ["rohit-ganguly"], orgs: [{ org: "descope" }] },
+  "seunggyu-lee":       { name: "Seunggyu Lee", logins: ["seungy0"], orgs: [{ org: "kakao" }] },
+  "charles-scholle":    { name: "Charles Scholle", logins: ["chaz8081"], orgs: [{ org: "breadfinancial" }] },
+  "eric-da-costa":      { name: "Eric da Costa", logins: ["oericdacosta"], orgs: [{ org: "indicium" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/js-sdk/commit/5c6f7924906562467267653a4c49dd0626f81059
+  "privilege-mendes":   { name: "Privilege Mendes", logins: ["privilegemendes"],
+                          emails: ["20317699+privilegemendes@users.noreply.github.com", "privilegemendes@gmail.com"], orgs: [{ org: "bridgefund" }] },  // +noreply: GitHub user id 20317699 = privilegemendes; observed 2026-11-08
+  "arnaud-buisine":     { name: "Arnaud Buisine", logins: ["arnaud-92"], orgs: [{ org: "merchantstamp" }] },
+  "zologic":            { logins: ["zologic"], orgs: [{ org: "zologic" }] },
+  "alex-pathcourse":    { name: "Alex C.", logins: ["alex-pathcourse"], orgs: [{ org: "pathcourse" }] },
+  "qinyingran":         { logins: ["qinyingran-tt"], emails: ["qinyingran@bytedance.com"], orgs: [{ org: "tiktok" }] },  // +qinyingran@bytedance.com: ucp@ecabe98825ec author qinyingran-TT; observed 2026-11-08
+
+  // Reported by a project maintainer with direct knowledge of these contributors.
+  // Recorded because it is first-hand and carries no identity guess, but flagged
+  // on every record: unlike a profile field, a corporate email or a published
+  // link, a reader cannot check it, and these contributors published nothing
+  // themselves. Spans are left undated — the report is that the affiliation held
+  // when they contributed, and inventing a boundary would fake precision.
+  "imran-hoosain":      { name: "Imran Hoosain", logins: ["ihoosain"], orgs: [{ org: "etsy" }],
+                          rosterNames: ["Imran Hoosain"] },
+  "alex-schillinger":   { name: "Alex Schillinger", logins: ["acschil"],
+                          emails: ["alexcschillinger@gmail.com"], orgs: [{ org: "target" }] },
+  "naga-malepati":      { name: "Naga Malepati", logins: ["mnaga"], orgs: [{ org: "wayfair" }] },
+  "archana-rao":        { name: "Archana Rao Malhotra", logins: ["archrao"], orgs: [{ org: "google" }],
+                          rosterNames: ["Archana Malhotra"] },  // Payments TC per MAINTAINERS.md@ddd1b3f (roster 'Archana Malhotra'); name kept; observed 2026-11-08
+  "sdedeo2025":         { name: "Scot DeDeo", logins: ["sdedeo2025"], emails: ["sdedeo@salesforce.com"],
+                          orgs: [{ org: "salesforce" }],
+                          rosterNames: ["Scot DeDeo"] },  // +name/email: ucp#455,#482 commits 'Scot DeDeo <sdedeo@salesforce.com>'; Shopping TC per MAINTAINERS.md@ddd1b3f; observed 2026-11-08
+
+  // Looked and found nothing at all: no employer in the profile, none in the
+  // login, and no published link to walk. No maintainer report either — these
+  // are `undisclosed` because the search came back empty.
+  "aneeshali":          { logins: ["aneeshali"], orgs: [{ org: "undisclosed" }] },
+  "venkatesh-ucp":      { logins: ["venkatesh-ucp"], orgs: [{ org: "undisclosed" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/a4aa86ab2a53474b250eb3b2ca9768fae99bc36b
+  "yanis-mtcr":         { name: "Yanis", logins: ["yanismtcr"], emails: ["yanis.montacer@edu.em-lyon.com", "yanis.montacer@gmail.com"], orgs: [{ org: "undisclosed" }] },  // +em-lyon email: ucp@d13cc61455d2 author YanisMtcr; orgs kept undisclosed; observed 2026-11-08
+  "omsaisudarshan108":  { logins: ["omsaisudarshan108"], orgs: [{ org: "undisclosed" }] },
+  "saifbenchahed":      { logins: ["saifbenchahed"], orgs: [{ org: "undisclosed" }] },
+
+  // Independent: profile names a personal venture or role, not an employer.
+  "douglas-borthwick":  { name: "Douglas Borthwick", logins: ["douglasborthwick-crypto"], orgs: [{ org: "independent" }] },
+  "tymofii-pidlisnyi":  { name: "Tymofii Pidlisnyi", logins: ["aeoess"], orgs: [{ org: "independent" }] },
+
+  // --------------------------------------------- corporate email on a commit
+  "thibault-meunier":   { name: "Thibault", logins: ["thibmeu"],
+                          emails: ["thibault@cloudflare.com"], orgs: [{ org: "cloudflare" }] },
+
+  // ------------------------------------------ employer named in their login
+  // A username is self-chosen and shown on every comment the person leaves, so
+  // an employer token in it is self-disclosure. No inference, no link walking.
+  "sarath-s":           { logins: ["saraths-stripe"], orgs: [{ org: "stripe" }] },
+  "jay-rana":           { name: "Jay Rana", logins: ["ranaj-google"], orgs: [{ org: "google" }] },
+  "twum-djin":          { name: "Twum Djin", logins: ["tdjin-stripe"], orgs: [{ org: "stripe" }],
+                          rosterNames: ["Twum Djin"] },
+  "dumitru-adyen":      { logins: ["dumitru-adyen"], orgs: [{ org: "adyen" }] },
+  "ashutosh-goog":      { logins: ["ashutosh-goog"], orgs: [{ org: "google" }] },
+  "logan-anderson":     { logins: ["logananderson-stripe"], orgs: [{ org: "stripe" }] },
+
+  // ---------------------------------------------------- link they published
+  // Each of these published the link themselves on their GitHub profile, so the
+  // identity match is their own assertion rather than a name lookup. The
+  // affiliation is read from that destination at the date they contributed, NOT
+  // from whatever it says today. Two records here turn on that: "adam-rida"
+  // contributed in Jan 2026 when the company was DeepRecall, which pivoted to
+  // Tracer in Mar 2026 and is recorded under the surviving name; "omer-korkmaz"
+  // carries an `until` because they moved on in Aug 2026, AFTER their activity
+  // here, so any later event resolves to unknown rather than to Upsonic.
+  "omer-korkmaz":       { name: "Ömer Korkmaz", logins: ["angryfoxx"],
+                          orgs: [{ org: "upsonic", until: "2026-08-01" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/conformance/commit/b4050321d1402635c9978240e831641e245f34fe
+  "yehonatan-zecharia": { name: "Yehonatan Zecharia", logins: ["yehonatanz"], emails: ["yonti95@gmail.com", "yehonatan.zecharia@forter.com"], orgs: [{ org: "forter" }] },
+  "adam-rida":          { name: "Adam Rida", logins: ["adrida"], orgs: [{ org: "tracer" }] },
+  "algovoi":            { name: "AlgoVoi", logins: ["chopmob-cloud"], orgs: [{ org: "algovoi" }] },
+  "matija-grcic":       { name: "Matija Grcic", logins: ["matijagrcic"], orgs: [{ org: "independent" }] },
+  "vivek-sai":          { name: "Vivek Sai", logins: ["reachviveksai-cloud"], orgs: [{ org: "independent" }] },
+  "yusuf-erdogan":      { name: "Yusuf Erdoğan", logins: ["biryazilimciysf"], orgs: [{ org: "independent" }] },
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/fab0df676cb336e13069a017c6ac3637847c7c77
+  "mubeen-fatima":      { name: "Mubeen F.", emails: ["108925765+mubeen-fatima@users.noreply.github.com", "mubeenfatima.cs@gmail.com"],
+                          logins: ["mubeen-fatima"], orgs: [{ org: "independent" }] },
+  "tomas-taylor":       { name: "Tomas Taylor", logins: ["0xtotaylor"], orgs: [{ org: "pennant" }] },
+  "eric-tsang":         { name: "Eric Tsang", logins: ["ectsang"], emails: ["1057844+ectsang@users.noreply.github.com"],
+                          orgs: [{ org: "independent" }] },  // +noreply: GitHub user id 1057844 = ectsang; ucp@31b024d41605; observed 2026-11-08
+  "diego-zuluaga":      { emails: ["dfzuluaga@gmail.com"], orgs: [{ org: "huawei" }] },
+  "onur-ulusoy":        { name: "Onur ULUSOY", logins: ["onuratakan"], orgs: [{ org: "upsonic" }] },
+
+  // Looked and found nothing: the link they published names no employer. This is
+  // the difference between `undisclosed` and being absent from this file.
+  "ed-siok":            { name: "Ed Siok", logins: ["sioked"], orgs: [{ org: "undisclosed" }],
+                          rosterNames: ["Ed Siok"] },
+  "misza":              { logins: ["misza-one"], orgs: [{ org: "undisclosed" }] },
+
+  // ------------------------------------------- self-reported GitHub company
+  // Their own profile names an employer. Same platform they contributed on, so
+  // this is self-reporting rather than inference; a human still confirmed each.
+  "artemii-karkusha":   { name: "Artemii Karkusha", logins: ["artemii-karkusha"], orgs: [{ org: "atwix" }] },
+  "don-benny":          { name: "Don Benny", logins: ["donbenny0"], orgs: [{ org: "ayatacommerce" }] },
+  "heiko-hotz":         { name: "Heiko Hotz", logins: ["heiko-hotz"], orgs: [{ org: "google" }] },
+  "victoria-duggan":    { name: "Victoria Duggan", logins: ["vixdug"], orgs: [{ org: "shopify" }] },  // current Shopping TC seat removed: replaced by Gil Greenberg 2026-09-15; absent from MAINTAINERS.md@ddd1b3f; observed 2026-11-08
+  "william-cielen":     { name: "William Cielen", logins: ["wcielen"], orgs: [{ org: "hilt" }] },
+  "koen-bouwmans":      { name: "Koen Bouwmans", logins: ["koenbouwmans"], orgs: [{ org: "shopify" }] },
+  "william-prussak-macarini":{ name: "William Prussak Macarini", logins: ["williammacarini"], orgs: [{ org: "mercadopago" }] },
+  "zeepcode-group":     { name: "Zeepcode Group", logins: ["lucaslubi"], orgs: [{ org: "zeepcode" }] },
+  "paulo-pereira":      { name: "Paulo Pereira", logins: ["aoipslsim2"], orgs: [{ org: "samsung" }] },
+  "hai-yuan-cao":       { name: "Hai-Yuan Cao", logins: ["caohy1988"], orgs: [{ org: "google" }] },
+  "juan-fernandez":     { name: "Juan Fernández", logins: ["juanferrub"], orgs: [{ org: "shopware" }] },
+  "antonio-martinez":   { name: "Antonio Martinez", logins: ["antoniomtz"], orgs: [{ org: "nvidia" }] },
+  "kiran-hegde":        { name: "Kiran Hegde", logins: ["khegde-ppro"], orgs: [{ org: "ppro" }] },
+  "keith-freeman":      { name: "Keith Freeman", logins: ["kmfreeman"], orgs: [{ org: "globalpayments" }] },
+  "reshadat-ali":       { name: "Reshadat Ali", logins: ["reshadat"], orgs: [{ org: "armorcode" }] },
+  "revanth":            { name: "Revanth", logins: ["revanth-zolofy"], orgs: [{ org: "zolofy" }] },
+  "provash-shoumma":    { name: "Provash Shoumma", logins: ["proshoumma"], emails: ["p.shoumma@klarna.com"], orgs: [{ org: "klarna" }] },  // +p.shoumma@klarna.com: ucp@b0d92c2d49ae author proshoumma; observed 2026-11-08
+  "maxime":             { name: "Maxime", logins: ["maximendutiye"], orgs: [{ org: "shopify" }] },
+  "brainkid":           { name: "brainKID", logins: ["0xbrainkid"], orgs: [{ org: "brainai" }] },
+  "demian":             { name: "Demian", logins: ["draspall"], orgs: [{ org: "google" }] },
+  "mateo-bourji":       { name: "Matéo Bourji", logins: ["mateobourji"], orgs: [{ org: "criteo" }] },
+  "hana-mulya-sesinawati":{ name: "Hana mulya sesinawati", logins: ["hanamulyasesinawati"], orgs: [{ org: "gadjahmada" }] },
+  "tom-arbesser":       { name: "Tom Arbesser", logins: ["toma-r"], orgs: [{ org: "bigcommerce" }] },
+  "jochem-timmers":     { name: "Jochem Timmers", logins: ["jochem-timmers"], orgs: [{ org: "channable" }] },
+  "sawyer-zhang":       { name: "Sawyer Zhang", logins: ["sawzhang"], orgs: [{ org: "starbucks" }] },
+  "raymond":            { name: "Raymond", logins: ["raymond802"], orgs: [{ org: "lumivate" }] },
+  "kya-james":          { name: "kya-james", logins: ["kyalabs-james"], orgs: [{ org: "kyalabs" }] },
+  "dogan-keskin":       { name: "Doğan Keskin", logins: ["dogank01"], orgs: [{ org: "upsonic" }] },
+  "ryan-cheng":         { name: "Ryan Cheng (鄭瑞龍)", logins: ["rui-long"], orgs: [{ org: "google" }] },
+  "sam":                { name: "Sam", logins: ["samali0996"], orgs: [{ org: "criteo" }] },
+  "pawelkedzior-gl":    { logins: ["pawelkedzior-gl"], orgs: [{ org: "google" }] },
+  "alan-blount":        { name: "alan blount", logins: ["zeroasterisk"], orgs: [{ org: "google" }] },
+  "oluwatimi":          { name: "Oluwatimi", logins: ["oluwatimio"], orgs: [{ org: "shopify" }] },
+  "thiago-costa":       { name: "Thiago Costa", logins: ["pulsecheckai"], orgs: [{ org: "pulsecheck" }] },
+  "atharva-chauhan":    { name: "Atharva Chauhan", logins: ["tagiswild"], orgs: [{ org: "ethiccodes" }] },
+  "sushant-mathur":     { name: "Sushant Mathur", logins: ["sushantsabre"], orgs: [{ org: "sabre" }] },
+  "ankur-shrivastava":  { name: "Ankur Shrivastava", logins: ["ankshvayt"], orgs: [{ org: "vestra" }] },
+  "naman-sood":         { name: "Naman Sood", logins: ["namansoood"], orgs: [{ org: "makerinc" }] },
+  "wishy-arora":        { logins: ["wishy-arora"], orgs: [{ org: "google" }],
+                          rosterNames: ["Wishy Arora"] },
+  "patrick-jones":      { name: "Patrick Jones", logins: ["patjonesorg"], orgs: [{ org: "independent" }] },
+  "devin-beeuwkes":     { name: "Devin Beeuwkes", logins: ["devincodes"], orgs: [{ org: "algolia" }] },
+  "nanne":              { name: "Nanne", logins: ["nanne-rl"], orgs: [{ org: "rootline" }] },
+  "dean-harel":         { name: "Dean Harel", logins: ["dean-harel-nekuda-ai"], orgs: [{ org: "nekuda" }] },
+  "alex-springer":      { name: "Alex Springer", logins: ["jalexspringer"], orgs: [{ org: "openattribution" }] },
+  "ryan-lamansky":      { name: "Ryan Lamansky", logins: ["ryanlamanskyinsite"], orgs: [{ org: "optimizely" }] },
+  "onur-ravli":         { name: "Onur Ravli", logins: ["onurravli"], orgs: [{ org: "insider" }] },
+  "alexander-siniouguine":{ name: "Alexander Siniouguine", logins: ["woland2k"], orgs: [{ org: "virtocommerce" }] },
+  "scott-t-nieman":     { name: "Scott T Nieman", logins: ["dubnemo"], orgs: [{ org: "landolakes" }] },
+  "marcus-elwin":       { name: "Marcus Elwin", logins: ["marcuselwin"], orgs: [{ org: "kustomcheckout" }] },
+  "adrian-mcphee":      { name: "Adrian McPhee", logins: ["adrianmcphee"], orgs: [{ org: "demandops" }] },
+  "abeer-agrawal":      { name: "Abeer Agrawal", logins: ["abeerag"], orgs: [{ org: "levrofin" }] },
+  "deepak-moonat":      { name: "Deepak moonat", logins: ["dmoonat"], orgs: [{ org: "google" }] },
+  "thor-schaeff":       { name: "Thor 雷神 Schaeff", logins: ["thorwebdev"], orgs: [{ org: "google" }] },
+  "stanislaw-kurzyp":   { name: "Stanisław Kurzyp", logins: ["skurzyp"], orgs: [{ org: "blockydevs" }] },
+  "sampath-kumar":      { name: "Sampath Kumar", logins: ["msampathkumar"], orgs: [{ org: "google" }] },
+
+  // =========================================================================
+  // 2026-11-08 intake: new-login cohort + email cohort, reconciled on explicit
+  // shared logins/emails. Trailing comment = evidence tier; public source; date.
+  // Roster aliases (rosterNames) were confirmed against MAINTAINERS.md@ddd1b3f; the seat's company
+  // label alone was not used as an org for an otherwise-undisclosed account.
+  // =========================================================================
+
+  // corporate / self-reported affiliation
+  "meteque1213":        { logins: ["meteque1213"], orgs: [{ org: "2aagency" }] },  // self-reported-profile-bio; https://github.com/meteque1213; observed 2026-11-08
+  "jose-adyen":         { logins: ["jose-adyen"], orgs: [{ org: "adyen" }] },  // employer-in-login; https://github.com/jose-adyen; observed 2026-11-08
+  "evgeny-oleynik":     { name: "Evgeny Oleynik", logins: ["evoleinik"], emails: ["evgeny@airshelf.ai"], orgs: [{ org: "airshelf" }] },  // corporate-email; https://github.com/Universal-Commerce-Protocol/ucp/pull/1044; observed 2026-11-08
+  "cafe24-sbmoon":      { logins: ["cafe24-sbmoon"], orgs: [{ org: "cafe24" }] },  // employer-in-login; https://github.com/cafe24-sbmoon; observed 2026-11-08
+  "doejon":             { logins: ["doejon"], orgs: [{ org: "dertour" }] },  // self-reported-profile; https://github.com/doejon; observed 2026-11-08
+  "dmitry-sergeev":     { name: "Dmitry Sergeev", logins: ["sergeevdmitry"], emails: ["sergeevdms@gmail.com"], orgs: [{ org: "devlab" }] },  // self-reported-profile; https://github.com/sergeevdmitry; observed 2026-11-08
+  "sanj-directbooker":  { logins: ["sanj-directbooker"], emails: ["sanj@directbooker.com"], orgs: [{ org: "directbooker" }] },  // corporate-email; https://github.com/Universal-Commerce-Protocol/ucp/pull/870; observed 2026-11-08
+  "steve-anastasi":     { name: "Steve Anastasi", logins: ["smasma42"], orgs: [{ org: "eatstreet" }] },  // self-reported-profile; https://github.com/smasma42; observed 2026-11-08
+  "matias":             { name: "Matias", logins: ["matiasedgeandnode"], orgs: [{ org: "edgeandnode" }] },  // employer-in-login; https://github.com/matiasedgeandnode; observed 2026-11-08
+  "kushal-khatri":      { name: "Kushal Khatri", logins: ["kushalkh04"], orgs: [{ org: "feedonomics" }] },  // self-reported-profile-bio; https://github.com/kushalkh04; observed 2026-11-08
+  "pratham-bhatnagar":  { name: "Pratham Bhatnagar", logins: ["pratham-bhatnagar"], orgs: [{ org: "generalmachines" }] },  // self-reported-profile; https://github.com/pratham-bhatnagar; observed 2026-11-08
+  "simon-farrow":       { name: "Simon Farrow", logins: ["simonwfarrow"], emails: ["simonwfarrow@gmail.com"], orgs: [{ org: "globalpayments" }], rosterNames: ["Simon Farrow"] },  // governance-roster (Payments TC 'Global Payments') + commits in worldpay-saml/worldpay-mcp 2025-11..2026-02; https://github.com/Universal-Commerce-Protocol/.github/blob/ddd1b3fed1c6ecdb205d10f3fb8af992859f929d/MAINTAINERS.md; observed 2026-11-08
+  "wes-cole":           { name: "Wes Cole", logins: ["wcole1-godaddy"], orgs: [{ org: "godaddy" }] },  // employer-in-login; https://github.com/wcole1-godaddy; observed 2026-11-08
+  "ethan-soch":         { name: "Ethan Soch", logins: ["esoch"], emails: ["ethansochdev@gmail.com"], orgs: [{ org: "gofundme" }] },  // self-reported-profile; https://github.com/esoch; observed 2026-11-08
+  "akshar-prabhu-desai":{ name: "Akshar Prabhu Desai", logins: ["aksharprabhudesai"], emails: ["262747075+aksharprabhudesai@users.noreply.github.com", "akshard@google.com"], orgs: [{ org: "google" }] },  // corporate-email; https://github.com/Universal-Commerce-Protocol/ucp/commit/5021fa83a652; observed 2026-11-08
+  "ben-greenstein":     { name: "Ben Greenstein", logins: ["bengreenstein"], emails: ["bengr@google.com"], orgs: [{ org: "google" }] },  // corporate-email; https://github.com/bengreenstein; observed 2026-11-08
+  "colm-gallagher":     { name: "Colm Gallagher", logins: ["mecolmg"], emails: ["mecolmg@google.com"], orgs: [{ org: "google" }], rosterNames: ["Colm Gallagher"] },  // corporate-email; https://github.com/mecolmg; observed 2026-11-08
+  "malvi-hemani":       { name: "Malvi Hemani", logins: ["malvihemani"], orgs: [{ org: "google" }], rosterNames: ["Malvi Hemani"] },  // governance-roster+charter-author; https://github.com/Universal-Commerce-Protocol/ucp/issues/518; observed 2026-11-08
+  "prateek-dudeja":     { name: "Prateek Dudeja", logins: ["prateekdudeja19-g"], orgs: [{ org: "google" }], rosterNames: ["Prateek Dudeja"] },  // governance-roster+charter-author; https://github.com/Universal-Commerce-Protocol/ucp/issues/594; observed 2026-11-08
+  "shiv":               { name: "Shiv", logins: ["shiv9091"], orgs: [{ org: "google" }] },  // self-reported-profile-bio; https://github.com/shiv9091; observed 2026-11-08
+  "sparsh":             { name: "Sparsh", logins: ["isparsh510"], emails: ["43761860+isparsh510@users.noreply.github.com", "isparsh@google.com"], orgs: [{ org: "google" }] },  // corporate-email; https://github.com/Universal-Commerce-Protocol/ucp/pull/878; observed 2026-11-08
+  "vitalii-tomkiv":     { name: "Vitalii Tomkiv", logins: ["vitaliitg"], emails: ["110419519+vitaliitg@users.noreply.github.com", "vitalit@google.com"], orgs: [{ org: "google" }] },  // corporate-email; supersedes other-cohort undisclosed; https://github.com/Universal-Commerce-Protocol/ucp/pull/876; observed 2026-11-08
+  "wayne-mak":          { name: "Wayne Mak", logins: ["waynemak"], orgs: [{ org: "google" }] },  // self-reported-profile; https://github.com/waynemak; observed 2026-11-08
+  "yu-hua-yang":        { name: "Yu-Hua Yang", logins: ["yuhuayang-google"], emails: ["107571329+yuhuayang-google@users.noreply.github.com", "yuhuayang@google.com"], orgs: [{ org: "google" }] },  // corporate-email; https://github.com/Universal-Commerce-Protocol/ucp/pull/881; observed 2026-11-08
+  "yuhao-lin":          { name: "Yuhao Lin", logins: ["yuhalo-hub"], emails: ["yuhalo@google.com"], orgs: [{ org: "google" }] },  // corporate-email; https://github.com/Universal-Commerce-Protocol/ucp/pull/1054; observed 2026-11-08
+  "ank3it":             { name: "Ankit- Gordon AI", logins: ["ank3it"], emails: ["ankit@withgordon.ai"], orgs: [{ org: "gordonai" }] },  // self-reported-profile; https://github.com/ank3it; observed 2026-11-08
+  "rouiada-abbas":      { name: "Rouiada Abbas", logins: ["hemmabo-se"], orgs: [{ org: "hemmabo" }] },  // self-reported-profile; https://github.com/hemmabo-se; observed 2026-11-08
+  "kotali":             { name: "Konstantin", logins: ["kotali"], orgs: [{ org: "iths" }] },  // self-reported-profile; https://github.com/kotali; observed 2026-11-08
+  "pavel-r":            { name: "Pavel R.", logins: ["pavel-ivinco"], orgs: [{ org: "ivinco" }] },  // employer-in-login; https://github.com/pavel-ivinco; observed 2026-11-08
+  "chris-d":            { name: "Chris D", logins: ["c-e-daly"], orgs: [{ org: "iwantthat" }] },  // self-reported-profile; https://github.com/c-e-daly; observed 2026-11-08
+  "jett-jackson":       { name: "Jett Jackson", logins: ["j-tt"], emails: ["me@jett.dev"], orgs: [{ org: "loke" }] },  // self-reported-profile; https://github.com/j-tt; observed 2026-11-08
+  "vinod-kumar":        { name: "Vinod Kumar", logins: ["vink28"], emails: ["vink@meta.com"], orgs: [{ org: "meta" }] },  // corporate-email: vink@meta.com on commits attributed to vink28 (facebook-for-woocommerce); https://github.com/vink28; observed 2026-11-08
+  "lamine-bendib":      { name: "Lamine Bendib", logins: ["laminembn"], emails: ["lamine.bendib@gmail.com"], orgs: [{ org: "mlbtechsolutions" }] },  // self-reported-profile; https://github.com/laminembn; observed 2026-11-08
+  "george-guimaraes":   { name: "George Guimarães", logins: ["georgeguimaraes"], emails: ["george.guimaraes@gmail.com"], orgs: [{ org: "newgeneration" }] },  // self-reported-profile; https://github.com/georgeguimaraes; observed 2026-11-08
+  "octolize":           { logins: ["octolize"], orgs: [{ org: "octolize" }] },  // employer-in-login; https://github.com/octolize; observed 2026-11-08
+  "can-uzay":           { name: "Can Uzay", logins: ["uzay-eth"], emails: ["hi@canuzay.com"], orgs: [{ org: "orkhon" }] },  // self-reported-profile; https://github.com/uzay-eth; observed 2026-11-08
+  "yuki-sodeoka":       { name: "Yuki Sodeoka", logins: ["yuki760"], emails: ["yuki.sode04@gmail.com"], orgs: [{ org: "outgleam" }] },  // self-published-link; https://outgleamai.com/; observed 2026-11-08
+  "jason-mathnov":      { name: "Jason Mathnov", logins: ["jmathnov"], orgs: [{ org: "paypal" }] },  // self-disclosed-in-contribution; https://github.com/Universal-Commerce-Protocol/ucp/issues/682; observed 2026-11-08
+  "sraj-cloud":         { logins: ["sraj-cloud"], emails: ["sraj@paypal.com"], orgs: [{ org: "paypal" }] },  // corporate-email; https://github.com/Universal-Commerce-Protocol/ucp/pull/1002; observed 2026-11-08
+  "tomas-stevanovic":   { name: "Tomas Stevanovic", logins: ["tstevanovic"], emails: ["ts@eipine.com"], orgs: [{ org: "pintorproject" }] },  // self-reported-profile; https://github.com/tstevanovic; observed 2026-11-08
+  "florian":            { name: "Florian", logins: ["schneider-f"], orgs: [{ org: "polytechnique" }] },  // self-reported-profile-company; https://github.com/schneider-f; observed 2026-11-08
+  "amit-solanki":       { name: "Amit Solanki", logins: ["amitkssolanki"], emails: ["amit@prayantr.com"], orgs: [{ org: "prayantr" }] },  // self-reported-profile; https://github.com/amitkssolanki; observed 2026-11-08
+  "apoorva-agrawal":    { name: "Apoorva Agrawal", logins: ["apoorva-agrawal-rzp"], emails: ["apoorva.a@razorpay.com"], orgs: [{ org: "razorpay" }] },  // corporate-email; https://github.com/apoorva-agrawal-rzp; observed 2026-11-08
+  "prateek-gupta":      { name: "Prateek Gupta", logins: ["prateekg17"], orgs: [{ org: "sainsburys" }] },  // self-reported-profile-bio; https://github.com/prateekg17; observed 2026-11-08
+  "giuseppe-socci":     { name: "Giuseppe Socci", logins: ["giuseppesocci-bot"], orgs: [{ org: "savethebrain" }] },  // self-reported-profile; https://github.com/giuseppesocci-bot; observed 2026-11-08
+  "quelum-wilson":      { name: "Quelum Wilson", logins: ["shxnque"], orgs: [{ org: "senueren" }] },  // self-reported-profile-company; https://github.com/shxnque; observed 2026-11-08
+  "waqas-ahmed":        { name: "Waqas Ahmed", logins: ["wakqasahmed"], orgs: [{ org: "sharafdg" }] },  // self-reported-profile-company; https://github.com/wakqasahmed; observed 2026-11-08
+  "maxim-piorischin":   { name: "Maxim Piorischin", logins: ["maxpiorischin"], emails: ["max.piorischin@shopify.com"], orgs: [{ org: "shopify" }] },  // corporate-email; https://github.com/Universal-Commerce-Protocol/ucp/pull/1048; observed 2026-11-08
+  "yoav-weiss":         { name: "Yoav Weiss", logins: ["yoavweiss"], orgs: [{ org: "shopify" }] },  // self-reported-profile-company; https://github.com/yoavweiss; observed 2026-11-08
+  "zhaocheng-li":       { name: "ZhaochengLi", logins: ["barrylzc"], orgs: [{ org: "shopline" }] },  // self-reported-profile; https://github.com/barrylzc; observed 2026-11-08
+  "jake-marsh":         { name: "Jake Marsh", logins: ["jakemarsh"], orgs: [{ org: "shopsavvy" }] },  // self-reported-profile-bio; https://github.com/jakemarsh; observed 2026-11-08
+  "dominik-grothaus":   { name: "Dominik Grothaus", logins: ["dgrothaus-sw"], orgs: [{ org: "shopware" }] },  // self-reported-profile; https://github.com/dgrothaus-sw; observed 2026-11-08
+  "yang-w":             { name: "Yang W.", logins: ["yangw831"], orgs: [{ org: "stabilerewards" }] },  // self-reported-profile; https://github.com/yangw831; observed 2026-11-08
+  "paulcarey-stripe":   { logins: ["paulcarey-stripe"], orgs: [{ org: "stripe" }] },  // employer-in-login; https://github.com/paulcarey-stripe; observed 2026-11-08
+  "reid-kairalla":      { name: "Reid Kairalla", logins: ["reidk-stripe"], emails: ["reidk@stripe.com"], orgs: [{ org: "stripe" }] },  // corporate-email; https://github.com/Universal-Commerce-Protocol/ucp-schema/pull/80; observed 2026-11-08
+  "zhang-honghao":      { name: "Zhanghonghao-Tiktok", logins: ["zhang-honghao"], emails: ["zhanghonghao.1@bytedance.com"], orgs: [{ org: "tiktok" }] },  // corporate-email; https://github.com/Universal-Commerce-Protocol/ucp/pull/915; observed 2026-11-08
+  "steven-frechette":   { name: "Steven Frechette", logins: ["tc-steven-frechette"], emails: ["steven.frechette@tradecentric.com"], orgs: [{ org: "tradecentric" }] },  // self-reported-profile; https://github.com/tc-steven-frechette; observed 2026-11-08
+  "enes-karatas":       { name: "Enes Karataş", logins: ["eneskrts"], orgs: [{ org: "upsonic" }] },  // self-reported-profile-company; https://github.com/eneskrts; observed 2026-11-08
+  "raj-zinzuvadia":     { name: "Raj Zinzuvadia", logins: ["raj-zinzuvadia"], orgs: [{ org: "wayloai" }] },  // self-reported-profile; https://github.com/raj-zinzuvadia; observed 2026-11-08
+  "sanjana-reji-kallingal":{ name: "Sanjana Reji Kallingal", logins: ["sanjanar06"], orgs: [{ org: "wellsfargo" }] },  // self-reported-profile; https://github.com/sanjanar06; observed 2026-11-08
+
+  // independent: explicit personal-capacity or self-employment statement
+  "akshar100":          { name: "Akshar Prabhu Desai", logins: ["akshar100"], emails: ["akshar@akshar.co.in"], orgs: [{ org: "independent" }] },  // self-reported-personal-capacity; https://github.com/akshar100; observed 2026-11-08
+  "dmytro-galko":       { name: "Dmytro Galko", logins: ["dkautomation23"], emails: ["dkautomation.lab@gmail.com", "dkautomation23@users.noreply.github.com"], orgs: [{ org: "independent" }] },  // self-published-site: freelance practice ('working with clients across the EU, UK and US', 'Work with me'); no employer; supersedes other-cohort undisclosed; https://dkautomation23.github.io/; observed 2026-11-08
+  "espen-schulstad":    { name: "Espen Schulstad", logins: ["esschul"], orgs: [{ org: "independent" }] },  // self-disclosed-personal-capacity; https://github.com/Universal-Commerce-Protocol/ucp/issues/532; observed 2026-11-08
+  "rahul-jujarey":      { name: "Rahul Jujarey", logins: ["jrahulroy"], emails: ["jrahulroy@gmail.com"], orgs: [{ org: "independent" }] },  // self-reported-personal-capacity; https://github.com/jrahulroy; observed 2026-11-08
+
+  // undisclosed: profile and published links reviewed, no affiliation found
+  "785479311tb":        { logins: ["785479311tb"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/785479311tb; observed 2026-11-08
+  "a-takecuhi":         { name: "A, Takecuhi", logins: ["atakedemo"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/atakedemo; observed 2026-11-08
+  "aakritibatra":       { logins: ["aakritibatra"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/aakritibatra; observed 2026-11-08
+  "aaron-glazer":       { name: "Aaron Glazer", logins: ["aglazer"], orgs: [{ org: "shopify" }] },  // affiliation declared by Ilya Grigorik, 2026-11-08
+  "abab7575":           { logins: ["abab7575"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/abab7575; observed 2026-11-08
+  "alidogankaya":       { logins: ["alidogankaya"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/alidogankaya; observed 2026-11-08
+  "amitpaz":            { name: "amitpaz", logins: ["amitpaz1"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/amitpaz1; observed 2026-11-08
+  "antomtech":          { logins: ["antomtech"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/antomtech; observed 2026-11-08
+  "aphisitsaengsuwan255-hub":{ logins: ["aphisitsaengsuwan255-hub"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/aphisitsaengsuwan255-hub; observed 2026-11-08
+  "arbanasantonija-bit":{ logins: ["arbanasantonija-bit"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/arbanasantonija-bit; observed 2026-11-08
+  "arian-gogani":       { name: "Arian Gogani", logins: ["arian-gogani"], orgs: [{ org: "undisclosed" }] },  // undisclosed: high-school student + own project (Nobulex); no personal-capacity statement (proposal said independent); https://github.com/arian-gogani; observed 2026-11-08
+  "aryan-ranjan":       { name: "Aryan Ranjan", logins: ["aryan-r03"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/aryan-r03; observed 2026-11-08
+  "ashwinsri23":        { logins: ["ashwinsri23"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/ashwinsri23; observed 2026-11-08
+  "bahmad503":          { logins: ["bahmad503"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/bahmad503; observed 2026-11-08
+  "ben-fisher":         { name: "Ben Fisher", logins: ["appdrops"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/appdrops; observed 2026-11-08
+  "bennyblum":          { logins: ["bennyblum"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/bennyblum; observed 2026-11-08
+  "bjorn-meyer":        { name: "Björn Meyer", logins: ["brocksinet"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/brocksinet; observed 2026-11-08
+  "buywhere":           { logins: ["buywhere"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/buywhere; observed 2026-11-08
+  "byteprincipal":      { logins: ["byteprincipal"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/byteprincipal; observed 2026-11-08
+  "chad-agate":         { name: "Chad Agate", logins: ["chad-agate"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/chad-agate; observed 2026-11-08
+  "chang-oudomsing":    { name: "Chang oudomsing", logins: ["oudomou4-collab"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/oudomou4-collab; observed 2026-11-08
+  "chelevich":          { logins: ["chelevich"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/chelevich; observed 2026-11-08
+  "christian-holzer":   { name: "Christian Holzer", logins: ["holzerch"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/holzerch; observed 2026-11-08
+  "dan-guim":           { name: "Dan Guim", logins: ["dcguim"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/dcguim; observed 2026-11-08
+  "danielius-visockas": { name: "Danielius Visockas", logins: ["dvisockas"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/dvisockas; observed 2026-11-08
+  "danilo-benovic":     { name: "Danilo Benović", logins: ["invocation97"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/invocation97; observed 2026-11-08
+  "david-peacock":      { name: "David Peacock", logins: ["dpeacock"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/dpeacock; observed 2026-11-08
+  "dhyabi2":            { logins: ["dhyabi2"], emails: ["dhyabi@gmail.com"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/dhyabi2; observed 2026-11-08
+  "dihan-nahdi":        { name: "Dihan Nahdi", logins: ["dihannahdi"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/dihannahdi; observed 2026-11-08
+  "dominic-damoah":     { name: "Dominic Damoah", logins: ["damoahdominic"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/damoahdominic; observed 2026-11-08
+  "dpaul0501":          { logins: ["dpaul0501"], emails: ["deb.jyoti93.paul@gmail.com"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/dpaul0501; observed 2026-11-08
+  "ejoslin":            { logins: ["ejoslin"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/ejoslin; observed 2026-11-08
+  "ericestegassy-code": { logins: ["ericestegassy-code"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/ericestegassy-code; observed 2026-11-08
+  "eugene-mobile":      { name: "Eugene", logins: ["eugene-mobile"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/eugene-mobile; observed 2026-11-08
+  "evan":               { name: "Evan", logins: ["eritscher"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/eritscher; observed 2026-11-08
+  "fly-marketing-agent":{ logins: ["fly-marketing-agent"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/fly-marketing-agent; observed 2026-11-08
+  "francesco-marinoni-moretto":{ name: "Francesco Marinoni Moretto", logins: ["frmoretto"], orgs: [{ org: "undisclosed" }] },  // undisclosed: own book/working paper + personal site only; no employer or personal-capacity statement (proposal said independent); https://github.com/frmoretto; observed 2026-11-08
+  "gabriel-hunt":       { name: "Gabriel Hunt", logins: ["ghunt-afi"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/ghunt-afi; observed 2026-11-08
+  "galang-juniar":      { name: "Galang Juniar", logins: ["fuahyo"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/fuahyo; observed 2026-11-08
+  "geanderson":         { name: "Geanderson", logins: ["lemonte"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/lemonte; observed 2026-11-08
+  "gelistirmekf":       { logins: ["gelistirmekf"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/gelistirmekf; observed 2026-11-08
+  "giskard09":          { name: "Giskard / Rama", logins: ["giskard09"], orgs: [{ org: "undisclosed" }] },  // undisclosed: own project site only; no employer or personal-capacity statement (proposal said independent); https://github.com/giskard09; observed 2026-11-08
+  "gswetha":            { logins: ["gswetha"], emails: ["gswetha.91.sg@gmail.com"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/Universal-Commerce-Protocol/ucp/commit/8bd6f887987912f3aa1c030cb67f7e5b737d0102; observed 2026-11-08
+  "harmanpreet-kaur":   { name: "Harmanpreet Kaur", logins: ["harman-2"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/harman-2; observed 2026-11-08
+  "hoya25":             { logins: ["hoya25"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/hoya25; observed 2026-11-08
+  "idontreally6-cpu":   { logins: ["idontreally6-cpu"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/idontreally6-cpu; observed 2026-11-08
+  "ifeanyinw":          { logins: ["ifeanyinw"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/ifeanyinw; observed 2026-11-08
+  "james-armstead":     { name: "James Armstead", logins: ["armsteadj1"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/armsteadj1; observed 2026-11-08
+  "jameschief":         { name: "JC", logins: ["jameschief"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/jameschief; observed 2026-11-08
+  "jaycoolslm":         { logins: ["jaycoolslm"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/jaycoolslm; observed 2026-11-08
+  "jeremy-wright":      { name: "Jeremy Wright", logins: ["qvxsphere"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/qvxsphere; observed 2026-11-08
+  "joao-menk":          { name: "Joao Menk", logins: ["joaomenkdev-cloud"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/joaomenkdev-cloud; observed 2026-11-08
+  "jon-hines":          { name: "Jon Hines", logins: ["jonhines"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/jonhines; observed 2026-11-08
+  "julia-downey":       { logins: ["julia-downey"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/julia-downey; observed 2026-11-08
+  "juliekye":           { logins: ["juliekye"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/juliekye; observed 2026-11-08
+  "ken-tominaga":       { name: "Ken Tominaga", logins: ["ken0nek"], emails: ["ken.for.develop@gmail.com"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/ken0nek; observed 2026-11-08
+  "kenny-law":          { name: "Kenny Law", logins: ["shopklaw"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/shopklaw; observed 2026-11-08
+  "kevin-brackney":     { name: "Kevin Brackney", logins: ["kbrackney"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/kbrackney; observed 2026-11-08
+  "kevin-mao":          { name: "Kevin Mao", logins: ["kev-mao"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/kev-mao; observed 2026-11-08
+  "kingalesh":          { logins: ["kingalesh"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/kingalesh; observed 2026-11-08
+  "koustubh25":         { logins: ["koustubh25"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/koustubh25; observed 2026-11-08
+  "kxk":                { name: "KXK", logins: ["kxxxxxxxk"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/kxxxxxxxk; observed 2026-11-08
+  "lamisma396-stack":   { logins: ["lamisma396-stack"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/lamisma396-stack; observed 2026-11-08
+  "linghuguo":          { logins: ["linghuguo"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/linghuguo; observed 2026-11-08
+  "lisa-pfisterer":     { name: "Lisa Pfisterer", logins: ["lisapfisterer"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/lisapfisterer; observed 2026-11-08
+  "mangelmartinezfer-hue":{ logins: ["mangelmartinezfer-hue"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/mangelmartinezfer-hue; observed 2026-11-08
+  "marco-lerena":       { name: "Marco Lerena", logins: ["anerel"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/anerel; observed 2026-11-08
+  "mark-wu":            { name: "Mark Wu", logins: ["markwu7"], emails: ["markhww.jobs@gmail.com"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://markwu-an6.pages.dev/; observed 2026-11-08
+  "matt":               { name: "Matt", logins: ["vcello"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/vcello; observed 2026-11-08
+  "mattsuma":           { logins: ["mattsuma"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/mattsuma; observed 2026-11-08
+  "mdazizulislamdukhu-cyber":{ logins: ["mdazizulislamdukhu-cyber"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/mdazizulislamdukhu-cyber; observed 2026-11-08
+  "mercael91":          { logins: ["mercael91"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/mercael91; observed 2026-11-08
+  "michael-dupont":     { name: "Michael duPont", logins: ["devdupont"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/devdupont; observed 2026-11-08
+  "moon":               { name: "Moon", logins: ["ririro93"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/ririro93; observed 2026-11-08
+  "muitamax":           { logins: ["muitamax"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/muitamax; observed 2026-11-08
+  "nik-watts":          { name: "Nik Watts", logins: ["n-watts"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/n-watts; observed 2026-11-08
+  "nikhil-purwant":     { name: "Nikhil Purwant", logins: ["nikhilpurwant"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/nikhilpurwant; observed 2026-11-08
+  "nimishjs":           { logins: ["nimishjs"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/nimishjs; observed 2026-11-08
+  "nino-triandafilidis":{ name: "Nino Triandafilidis", logins: ["nino-triandafilidis"], emails: ["ninot@stanford.edu"], orgs: [{ org: "undisclosed" }] },  // undisclosed: institutional stanford.edu email only; no role stated (proposal said stanford); https://github.com/nino-triandafilidis; observed 2026-11-08
+  "nkjh109":            { logins: ["nkjh109"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/nkjh109; observed 2026-11-08
+  "nolpak14":           { logins: ["nolpak14"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/nolpak14; observed 2026-11-08
+  "nori00000":          { logins: ["nori00000"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/nori00000; observed 2026-11-08
+  "odyssey1816":        { logins: ["odyssey1816"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/odyssey1816; observed 2026-11-08
+  "okoren-g":           { logins: ["okoren-g"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/okoren-g; observed 2026-11-08
+  "ori":                { name: "Ori", logins: ["oriliz"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/oriliz; observed 2026-11-08
+  "paiking1":           { logins: ["paiking1"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/paiking1; observed 2026-11-08
+  "pao-sheng":          { name: "Pao Sheng", logins: ["paopa"], emails: ["paosheng.wang@gmail.com"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/paopa; observed 2026-11-08
+  "paragsam":           { logins: ["paragsam"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/paragsam; observed 2026-11-08
+  "patrickpi1312":      { logins: ["patrickpi1312"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/patrickpi1312; observed 2026-11-08
+  "pedro-natali":       { name: "Pedro Natali", logins: ["pedronatali"], orgs: [{ org: "undisclosed" }] },  // undisclosed: student profile (USP); no employer or personal-capacity statement (proposal said usp); https://github.com/pedronatali; observed 2026-11-08
+  "poojithg14":         { logins: ["poojithg14"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/poojithg14; observed 2026-11-08
+  "qyr":                { name: "QYR", logins: ["supeuro"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/supeuro; observed 2026-11-08
+  "robert-limbrey":     { name: "Robert Limbrey", logins: ["limbrey"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/limbrey; observed 2026-11-08
+  "rondanino":          { logins: ["rondanino"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/rondanino; observed 2026-11-08
+  "rrrrayyyy":          { name: "ray", logins: ["rrrrayyyy"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/rrrrayyyy; observed 2026-11-08
+  "samlogic-ship":      { name: "sam", logins: ["samlogic-ship"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/samlogic-ship; observed 2026-11-08
+  "sandaleensan":       { logins: ["sandaleensan"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/sandaleensan; observed 2026-11-08
+  "sanders":            { name: "Sanders", logins: ["sanderslee2"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/sanderslee2; observed 2026-11-08
+  "shahriarsyed":       { logins: ["shahriarsyed"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/shahriarsyed; observed 2026-11-08
+  "siddharth":          { name: "siddharth", logins: ["sidj242"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/sidj242; observed 2026-11-08
+  "singhtothxngphisisth03-ops":{ logins: ["singhtothxngphisisth03-ops"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/singhtothxngphisisth03-ops; observed 2026-11-08
+  "slf":                { name: "slf", logins: ["slf2code"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/slf2code; observed 2026-11-08
+  "sruthi-vandhana":    { logins: ["sruthi-vandhana"], emails: ["81831044+sruthi-vandhana@users.noreply.github.com"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/Universal-Commerce-Protocol/ucp/commit/3ab41043b79373df33a6e2c377bc82a806175f78; observed 2026-11-08
+  "stefano94120":       { name: "Stefano94120", logins: ["stevenknowswhy"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/stevenknowswhy; observed 2026-11-08
+  "subhash-karri":      { logins: ["subhash-karri"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/subhash-karri; observed 2026-11-08
+  "sujoy-gupta":        { name: "Sujoy Gupta", logins: ["sujoyg"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/sujoyg; observed 2026-11-08
+  "surgarbear56-debug": { logins: ["surgarbear56-debug"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/surgarbear56-debug; observed 2026-11-08
+  "sw-tang":            { logins: ["sw-tang"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/sw-tang; observed 2026-11-08
+  "tatelyman":          { logins: ["tatelyman"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/tatelyman; observed 2026-11-08
+  "thomassalmon422-a11y":{ logins: ["thomassalmon422-a11y"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/thomassalmon422-a11y; observed 2026-11-08
+  "tiagocandido":       { logins: ["tiagocandido"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/tiagocandido; observed 2026-11-08
+  "toruiwasa":          { logins: ["toruiwasa"], emails: ["11441145+toruiwasa@users.noreply.github.com"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/toruiwasa; observed 2026-11-08
+  "tsanko-zanov":       { name: "Tsanko Zanov", logins: ["tsazan"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/tsazan; observed 2026-11-08
+  "twzrd":              { name: "TWZRD", logins: ["twzrd-sol"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/twzrd-sol; observed 2026-11-08
+  "uddhav-kambli":      { name: "Uddhav Kambli", logins: ["uddhav"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/uddhav; observed 2026-11-08
+  "uncle-enzo":         { logins: ["uncle-enzo"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/uncle-enzo; observed 2026-11-08
+  "vamsi678":           { logins: ["vamsi678"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/vamsi678; observed 2026-11-08
+  "vanhaipham086-byte": { logins: ["vanhaipham086-byte"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/vanhaipham086-byte; observed 2026-11-08
+  "vicentewolde":       { logins: ["vicentewolde"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/vicentewolde; observed 2026-11-08
+  "volt":               { name: "Volt", logins: ["sauravgit"], emails: ["saurav.off@gmail.com"], orgs: [{ org: "undisclosed" }] },  // undisclosed: own open-source project only; no employer or personal-capacity statement (proposal said independent); https://github.com/sauravgit; observed 2026-11-08
+  "wei":                { name: "wei", logins: ["wzhang-cbh"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/wzhang-cbh; observed 2026-11-08
+  "weida":              { name: "weida", logins: ["weidashike75"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/weidashike75; observed 2026-11-08
+  "xiaosi":             { name: "xiaosi", logins: ["zhanghongyong123456"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/zhanghongyong123456; observed 2026-11-08
+  "yair-sabag":         { name: "Yair Sabag", logins: ["yairsabag"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/yairsabag; observed 2026-11-08
+  // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/970152470c49e01d5b946a2c9dbf16b5c27aa094
+  "yappermoar-boop":    { logins: ["yappermoar-boop"], emails: ["226976916+yappermoar-boop@users.noreply.github.com", "barbutcukendal42@gmail.com"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/yappermoar-boop; observed 2026-11-08
+  "yucheng-zheng":      { name: "Yucheng Zheng", logins: ["viryazheng"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/viryazheng; observed 2026-11-08
+  "yui":                { name: "Yui", logins: ["yuit"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/yuit; observed 2026-11-08
+  "yunlong-song-awx":   { logins: ["yunlong-song-awx"], orgs: [{ org: "undisclosed" }] },  // undisclosed-after-profile-review; https://github.com/yunlong-song-awx; observed 2026-11-08
+}

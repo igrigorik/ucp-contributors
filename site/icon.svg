@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 31" role="img" aria-label="UCP">
+  <!-- The same three paths as the masthead mark in index.html, kept byte-identical
+       so the two can be diffed. They are not shared: the masthead inlines the SVG
+       to take the header's ink via currentColor and to save a request, and a
+       favicon cannot inherit anything from the document.
+
+       currentColor is resolved here instead by `color` on the root, which lets
+       one media query serve both tab bars — a browser chrome that is dark gets
+       the page's cream, not black on near-black. -->
+  <style>
+    svg { color: #1c1a17 }
+    @media (prefers-color-scheme: dark) { svg { color: #fbfaf6 } }
+  </style>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M27 10L16 16.6658V30L27 23.3329V20.8325L18.1149 26.2495V17.9159L27 12.499V10Z" fill="currentColor" stroke="currentColor" stroke-width="0.2"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M4.30688 11.2488L2 10V23.3329L14 30V16.6658L11.6916 15.4156V26.2495L4.30688 22.0827V11.2488Z" fill="currentColor" stroke="currentColor" stroke-width="0.2"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M15.1296 1L3 8L15 15L17.3859 13.6979L15 12.3563L25 6.65981L15.1296 1ZM12.7681 10.9978L7.59675 7.9732L15.1296 3.62535L20.3551 6.64148L12.7681 10.9992V10.9978Z" fill="currentColor" stroke="currentColor" stroke-width="0.2"/>
+</svg>

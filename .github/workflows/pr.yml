@@ -1,0 +1,33 @@
+name: check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      # Action SHAs resolved from the upstream release tags noted beside each.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          bun-version: 1.4.0
+      - run: bun install --frozen-lockfile
+      # Shapes only. Metric names are plain strings; their vocabulary is
+      # enforced at runtime by `verify`, not by the type checker.
+      - run: bun run typecheck
+      - run: bun test
+      - run: node --check site/*.js
+      # Git-only acquisition, then derive (which validates the hand-edited data
+      # files) and verify (which recounts the artifact against raw/ and checks
+      # nothing internal reaches a public page). No token, no GitHub overlay:
+      # overlay code is covered by `bun test` only.
+      - run: bun run build
+      - run: bun run stage
