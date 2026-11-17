@@ -83,7 +83,7 @@
                           rosterNames: ["James Andersen"] },
   "karan-goel":         { emails: ["karangoel16@yahoo.com"], orgs: [{ org: "meta" }] },
   "vaithee-baskaran":   { emails: ["sbeashwar@outlook.com", "vaits@microsoft.com"], orgs: [{ org: "microsoft" }] },
-  "nachiket-torwekar":  { emails: ["nachiket.torwekar@gmail.com"], orgs: [{ org: "nike" }] },
+  "nachiket-torwekar":  { name: "Nachiket Torwekar", logins: ["ynachiket"], emails: ["nachiket.torwekar@gmail.com"], orgs: [{ org: "independent" }] },  // self-declared personal capacity by the contributor (ynachiket); https://github.com/ynachiket; declared 2026-11-16
   "waldek-herka":       { emails: ["87032474+wherka-ama@users.noreply.github.com"], orgs: [{ org: "amadeus" }] },
   // Public commit-author aliases; observed 2026-11-08: https://github.com/Universal-Commerce-Protocol/ucp/commit/71a40830536bf72efd38c9d1de8d2f40ba7dbb69
   "sri-akula":          { emails: ["78380822+sriakula1@users.noreply.github.com", "xpaysh@gmail.com"], orgs: [{ org: "xpay" }] },
